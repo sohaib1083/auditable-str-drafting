@@ -1,0 +1,55 @@
+{
+  "version": "0.1.0",
+  "sources": "Indicators paraphrased from FATF typology reports and FIU red-flag guidance; thresholds are demo defaults and must be calibrated per deployer.",
+  "typologies": [
+    {
+      "id": "STRUCTURING",
+      "name": "Structuring (avoiding the cash reporting threshold)",
+      "short": "structuring",
+      "tazama_typologies": ["STR-PK-01"],
+      "indicators": [
+        { "id": "STR-1", "weight": 0.35, "text": "Repeated cash deposits just below the reporting threshold", "rule": "near_threshold_count>=3 and near_threshold_share>=0.5", "facts": ["near_threshold", "ctr_threshold"] },
+        { "id": "STR-2", "weight": 0.15, "text": "Deposits spread across several branches",                   "rule": "branch_count>=3", "facts": ["branches"] },
+        { "id": "STR-3", "weight": 0.10, "text": "More than one cash deposit on the same day",               "rule": "same_day_days>=1", "facts": ["same_day_cash"] },
+        { "id": "STR-4", "weight": 0.20, "text": "Cash volume inconsistent with the declared income",        "rule": "income_multiple>=5 and turnover_ratio_or_zero<=0", "facts": ["income_multiple", "declared_income"] },
+        { "id": "STR-5", "weight": 0.15, "text": "Customer questioned the reporting requirement or declined to explain the source of funds", "rule": "note_source_of_funds", "facts": ["note_source_of_funds"] }
+      ],
+      "counter_indicators": [
+        { "id": "STR-C1", "weight": 0.35, "text": "Cash volume is within the declared business turnover", "rule": "turnover_ratio>0 and turnover_ratio<=1.0", "facts": ["turnover_ratio"] },
+        { "id": "STR-C2", "weight": 0.25, "text": "Few deposits fall just below the threshold; larger deposits were reported", "rule": "near_threshold_share<0.3 and above_threshold_count>=1", "facts": ["near_threshold", "above_threshold"] },
+        { "id": "STR-C3", "weight": 0.20, "text": "A documented seasonal or business explanation exists", "rule": "note_seasonal", "facts": ["note_seasonal"] }
+      ]
+    },
+    {
+      "id": "MONEY_MULE",
+      "name": "Money mule / rapid pass-through account",
+      "short": "money mule activity",
+      "tazama_typologies": ["MULE-01"],
+      "indicators": [
+        { "id": "MUL-1", "weight": 0.25, "text": "Many unrelated inbound senders in a short period", "rule": "distinct_senders>=10", "facts": ["distinct_senders"] },
+        { "id": "MUL-2", "weight": 0.30, "text": "Most inbound value leaves the account within hours", "rule": "outflow_ratio>=0.8 and median_hours_to_outflow<=24", "facts": ["outflow_ratio", "pass_through_time"] },
+        { "id": "MUL-3", "weight": 0.20, "text": "Account activity inconsistent with the customer profile", "rule": "income_multiple>=5 and turnover_ratio_or_zero<=0", "facts": ["income_multiple", "occupation", "declared_income"] },
+        { "id": "MUL-4", "weight": 0.20, "text": "Fraud recall requests received from sender banks", "rule": "note_recall", "facts": ["note_recall"] }
+      ],
+      "counter_indicators": [
+        { "id": "MUL-C1", "weight": 0.35, "text": "Outgoing payments go to a documented trade supplier", "rule": "note_supplier_docs", "facts": ["note_seasonal"] },
+        { "id": "MUL-C2", "weight": 0.25, "text": "Activity is within the declared business turnover", "rule": "turnover_ratio>0 and turnover_ratio<=1.0", "facts": ["turnover_ratio"] }
+      ]
+    },
+    {
+      "id": "UNEXPLAINED_VOLUME",
+      "name": "Cash volume spike without clear pattern",
+      "short": "an unexplained increase in cash activity",
+      "tazama_typologies": ["VEL-03"],
+      "indicators": [
+        { "id": "VOL-1", "weight": 0.30, "text": "Cash credits well above the customer's declared income", "rule": "income_multiple>=5 and turnover_ratio_or_zero<=0", "facts": ["income_multiple"] },
+        { "id": "VOL-2", "weight": 0.20, "text": "Tazama velocity rule fired against the 90-day baseline", "rule": "tazama_match", "facts": ["tazama_typology"] }
+      ],
+      "counter_indicators": [
+        { "id": "VOL-C1", "weight": 0.35, "text": "Cash volume is within the declared business turnover", "rule": "turnover_ratio>0 and turnover_ratio<=1.0", "facts": ["turnover_ratio"] },
+        { "id": "VOL-C2", "weight": 0.25, "text": "A documented seasonal or business explanation exists", "rule": "note_seasonal", "facts": ["note_seasonal"] },
+        { "id": "VOL-C3", "weight": 0.15, "text": "Outgoing payments go to a documented trade supplier", "rule": "note_supplier_docs", "facts": ["note_seasonal"] }
+      ]
+    }
+  ]
+}

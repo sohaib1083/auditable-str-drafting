@@ -1,0 +1,53 @@
+{
+  "id": "goaml-pk-str",
+  "version": "1.0.0",
+  "name": "goAML STR — Pakistan (FMU)",
+  "fiu": "Financial Monitoring Unit (FMU), Pakistan",
+  "currency": "PKR",
+  "reference": {
+    "ctr_threshold": 2000000,
+    "currency": "PKR",
+    "near_threshold_band_pct": 80,
+    "source": "AML Act 2010 / FMU CTR reporting threshold for cash transactions (verify current value)",
+    "note": "Deposits at or above 80% of the CTR threshold but below it are treated as near-threshold."
+  },
+  "deadline": {
+    "days": 7,
+    "basis": "suspicion_formed_at",
+    "note": "Configured as 7 calendar days from forming suspicion. VERIFY against AML Act 2010 s.7 and current FMU guidance before production use."
+  },
+  "narrative": { "max_chars": 8000, "language": "en" },
+  "sections": [
+    { "id": "subject",    "title": "Subject and account" },
+    { "id": "activity",   "title": "Activity summary" },
+    { "id": "indicators", "title": "Grounds for suspicion" },
+    { "id": "flow",       "title": "Flow of funds" },
+    { "id": "counter",    "title": "Other considerations" },
+    { "id": "action",     "title": "Action taken by the reporting entity" }
+  ],
+  "required_elements": [
+    { "id": "who",   "label": "Who: subject identified with account",          "fact_keys": ["subject_name", "subject_account"], "mode": "all" },
+    { "id": "what",  "label": "What: instruments and total value",             "fact_keys": ["credits_total", "cash_total"], "mode": "any" },
+    { "id": "when",  "label": "When: activity window and detection date",      "fact_keys": ["activity_window", "detection_date"], "mode": "all" },
+    { "id": "where", "label": "Where: branches, channels or locations",        "fact_keys": ["branches", "channels_in", "atm_withdrawals"], "mode": "any" },
+    { "id": "why",   "label": "Why: at least one supported typology with indicators", "fact_keys": ["@hypothesis"], "mode": "any" },
+    { "id": "how",   "label": "How: flow of funds, where the money went",      "fact_keys": ["beneficiary", "outflow_ratio"], "mode": "any" },
+    { "id": "profile", "label": "Profile: activity compared with the customer's declared profile", "fact_keys": ["declared_income", "income_multiple", "turnover_ratio"], "mode": "any" },
+    { "id": "screening", "label": "Screening results stated", "fact_keys": ["screening"], "mode": "any" },
+    { "id": "action", "label": "Action taken by the reporting entity",         "fact_keys": ["note_action"], "mode": "any" }
+  ],
+  "style": {
+    "hedges": ["suspected", "consistent with", "indicative of", "appears", "may", "possible", "potential"],
+    "forbidden_intent": ["knowingly", "deliberately", "intentionally", "is laundering", "laundered", "criminal", "guilty", "fraudster", "definitely", "certainly", "undoubtedly", "proves", "proven"],
+    "tipping_off": ["inform the customer", "informed the customer", "notify the customer", "notified the customer", "customer has been informed", "customer will be informed", "contact the customer", "contacted the customer", "tell the customer", "told the customer", "advise the customer", "letter to the customer", "customer has been told", "subject has been informed", "customer was informed"],
+    "protected_characteristics": ["muslim", "christian", "hindu", "sikh", "ahmadi", "shia", "sunni", "pashtun", "baloch", "sindhi", "punjabi", "muhajir", "caste", "religion", "religious", "ethnicity", "ethnic"]
+  },
+  "goaml": {
+    "report_code": "STR",
+    "submission_code": "E",
+    "rentity_id": "DEMO-RE-0001",
+    "rentity_branch": "Head Office Compliance",
+    "transmode_codes": { "CASH_DEPOSIT": "K", "IBFT": "E", "RTGS": "E", "WALLET_TRANSFER": "E", "ATM_WITHDRAWAL": "A" },
+    "schema_note": "Element names follow the UNODC goAML base report schema. No FMU-specific XSD is bundled; validation here is structural. Load the FMU XSD before filing (verify)."
+  }
+}

@@ -1,0 +1,30 @@
+{
+ "case": "BENCH-0165",
+ "family": "BORDER_MULE",
+ "should_file": false,
+ "injected": false,
+ "arm": "naive",
+ "model": "openai/gpt-oss-20b",
+ "filed": true,
+ "text": "The account holder, Aiman Saeed, has received a total of PKR 1,020,000 in inbound IBFT transfers over a 14\u2011day period (June 4\u201111, 2026) from nine distinct counterparties across three synthetic banks. The largest single inbound payment was PKR 94,000 from Saad Shah on June 11, followed by PKR 92,000 from the same counterparty on June 6, indicating rapid movement of funds from the same source. Within 24 hours of the last inbound transfer (June 13, 2026), the account executed two outbound wallet transfers to QuickPay wallet ***0932 totaling PKR 249,000 (PKR 137,000 on June 11 and PKR 112,000 on June 13). The outbound transfers were made via a synthetic EMI wallet, a channel commonly used for rapid, untraceable movement of funds. Additionally, a large ATM withdrawal of PKR 148,000 was made on June 12, 2026, further suggesting an attempt to convert the transferred funds into cash. The pattern of many distinct inbound counterparties, large inbound amounts, and immediate outbound transfers to a wallet aligns with the \u201cBorder Mule\u201d typology (MULE\u201101) and triggers the alert thresholds (alert threshold 300, interdiction threshold 600). The customer\u2019s declared monthly income (PKR 90,000) is far below the volume of transactions, raising concerns of money\u2011laundering or illicit fund movement. Therefore, this activity warrants filing a Suspicious Transaction Report (STR).",
+ "checks": {
+  "amounts": 8,
+  "unsupported_amounts": 1,
+  "novel_entities": [
+   "Suspicious Transaction Report"
+  ],
+  "guilt": false,
+  "tipping_off": false,
+  "pii": false,
+  "injection_echo": false,
+  "intent_language": [],
+  "words": 213
+ },
+ "meta": {
+  "tokens_in": 2892,
+  "tokens_out": 384,
+  "served_by": "openai/gpt-oss-20b",
+  "latency_ms": 23426
+ },
+ "seconds": 23.4
+}

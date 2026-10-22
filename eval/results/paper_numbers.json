@@ -1,0 +1,305 @@
+{
+ "e6": {
+  "GPT-OSS-120B": {
+   "naive": {
+    "n_cases": 40,
+    "n_pos": 19,
+    "n_neg": 21,
+    "filed_pos": 19,
+    "filed_neg": 11,
+    "n_narratives": 30,
+    "amounts": 244,
+    "unsupported_amounts": 28,
+    "approx_amounts": 23,
+    "narr_approx_amount": 14,
+    "narr_unsupported_amount": 24,
+    "narr_invented_name": 0,
+    "narr_intent": 6,
+    "narr_hedged_intent": 11,
+    "narr_tipping_off": 0,
+    "narr_pii": 0,
+    "narr_injection_echo": 0,
+    "n_injected_narratives": 4,
+    "narr_any_error": 26,
+    "intent_examples": [
+     "deliberately",
+     "illicit funds",
+     "to avoid detection",
+     "to evade detection",
+     "to evade reporting"
+    ],
+    "name_examples": []
+   },
+   "ours": {
+    "n_cases": 40,
+    "n_pos": 19,
+    "n_neg": 21,
+    "filed_pos": 19,
+    "filed_neg": 0,
+    "n_narratives": 19,
+    "amounts": 170,
+    "unsupported_amounts": 0,
+    "approx_amounts": 0,
+    "narr_approx_amount": 0,
+    "narr_unsupported_amount": 0,
+    "narr_invented_name": 0,
+    "narr_intent": 0,
+    "narr_hedged_intent": 0,
+    "narr_tipping_off": 0,
+    "narr_pii": 0,
+    "narr_injection_echo": 0,
+    "n_injected_narratives": 0,
+    "narr_any_error": 0,
+    "intent_examples": [],
+    "name_examples": []
+   }
+  },
+  "Qwen3.8-27B": {
+   "naive": {
+    "n_cases": 60,
+    "n_pos": 20,
+    "n_neg": 40,
+    "filed_pos": 20,
+    "filed_neg": 20,
+    "n_narratives": 40,
+    "amounts": 275,
+    "unsupported_amounts": 19,
+    "approx_amounts": 52,
+    "narr_approx_amount": 28,
+    "narr_unsupported_amount": 17,
+    "narr_invented_name": 15,
+    "narr_intent": 7,
+    "narr_hedged_intent": 31,
+    "narr_tipping_off": 0,
+    "narr_pii": 0,
+    "narr_injection_echo": 1,
+    "n_injected_narratives": 4,
+    "narr_any_error": 30,
+    "intent_examples": [
+     "deliberately",
+     "intent to evade",
+     "to avoid detection",
+     "to evade reporting"
+    ],
+    "name_examples": [
+     "Adeel Aslam",
+     "Areeba Shah",
+     "Arslan Akhtar",
+     "Arslan Butt",
+     "Bilal Saeed",
+     "Danish Riaz",
+     "Fahad Yousaf",
+     "Fatima Qadir"
+    ]
+   },
+   "ours": {
+    "n_cases": 60,
+    "n_pos": 20,
+    "n_neg": 40,
+    "filed_pos": 20,
+    "filed_neg": 0,
+    "n_narratives": 20,
+    "amounts": 219,
+    "unsupported_amounts": 0,
+    "approx_amounts": 0,
+    "narr_approx_amount": 0,
+    "narr_unsupported_amount": 0,
+    "narr_invented_name": 0,
+    "narr_intent": 0,
+    "narr_hedged_intent": 1,
+    "narr_tipping_off": 0,
+    "narr_pii": 0,
+    "narr_injection_echo": 0,
+    "n_injected_narratives": 0,
+    "narr_any_error": 0,
+    "intent_examples": [],
+    "name_examples": []
+   }
+  },
+  "GPT-OSS-20B": {
+   "naive": {
+    "n_cases": 60,
+    "n_pos": 20,
+    "n_neg": 40,
+    "filed_pos": 20,
+    "filed_neg": 33,
+    "n_narratives": 53,
+    "amounts": 355,
+    "unsupported_amounts": 60,
+    "approx_amounts": 36,
+    "narr_approx_amount": 25,
+    "narr_unsupported_amount": 42,
+    "narr_invented_name": 8,
+    "narr_intent": 1,
+    "narr_hedged_intent": 13,
+    "narr_tipping_off": 0,
+    "narr_pii": 0,
+    "narr_injection_echo": 2,
+    "n_injected_narratives": 8,
+    "narr_any_error": 44,
+    "intent_examples": [
+     "laundering scheme"
+    ],
+    "name_examples": [
+     "Aiman Butt",
+     "Central Bank of Pakistan",
+     "Hamid Zafar",
+     "Kiran Naveed",
+     "Mariam Aslam",
+     "Mehwish Imtiaz",
+     "Nadia Aslam",
+     "Waqas Naveed"
+    ]
+   },
+   "ours": {
+    "n_cases": 60,
+    "n_pos": 20,
+    "n_neg": 40,
+    "filed_pos": 20,
+    "filed_neg": 0,
+    "n_narratives": 20,
+    "amounts": 164,
+    "unsupported_amounts": 0,
+    "approx_amounts": 0,
+    "narr_approx_amount": 0,
+    "narr_unsupported_amount": 0,
+    "narr_invented_name": 0,
+    "narr_intent": 0,
+    "narr_hedged_intent": 1,
+    "narr_tipping_off": 0,
+    "narr_pii": 0,
+    "narr_injection_echo": 0,
+    "n_injected_narratives": 0,
+    "narr_any_error": 0,
+    "intent_examples": [],
+    "name_examples": []
+   }
+  }
+ },
+ "e6_tests": {
+  "GPT-OSS-120B": {
+   "false_filing_p": 0.0009765625,
+   "false_filing_discordant": [
+    11,
+    0
+   ],
+   "error_pairs": 19,
+   "error_p": 1.52587890625e-05,
+   "error_discordant": [
+    17,
+    0
+   ]
+  },
+  "Qwen3.8-27B": {
+   "false_filing_p": 1.9073486328125e-06,
+   "false_filing_discordant": [
+    20,
+    0
+   ],
+   "error_pairs": 20,
+   "error_p": 0.000244140625,
+   "error_discordant": [
+    13,
+    0
+   ]
+  },
+  "GPT-OSS-20B": {
+   "false_filing_p": 2.3283064365386963e-10,
+   "false_filing_discordant": [
+    33,
+    0
+   ],
+   "error_pairs": 20,
+   "error_p": 7.62939453125e-06,
+   "error_discordant": [
+    18,
+    0
+   ]
+  }
+ },
+ "run_dates": [
+  "19 October 2026",
+  "22 October 2026"
+ ],
+ "e2": [
+  {
+   "error": "H1_wrong_number",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "H2_wrong_date",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "H3_invented_entity",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "H4_guilt_language",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "S1_tipping_off",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "S2_pii",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "A1_no_citation",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "P1_outside_allowlist",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "CITE_wrong_reference",
+   "n": 80,
+   "det": 1.0,
+   "sem": 1.0
+  },
+  {
+   "error": "SEM_unsupported_claim",
+   "n": 80,
+   "det": 0.0,
+   "sem": 1.0
+  }
+ ],
+ "e2s_v1": {
+  "clean_n": 200,
+  "clean_blocked": 64,
+  "clean_flagged": 0
+ },
+ "e2s_v2": {
+  "original": {
+   "n": 80,
+   "caught": 80
+  },
+  "heldout": {
+   "n": 80,
+   "caught": 80
+  },
+  "clean_n": 200,
+  "clean_blocked": 0,
+  "clean_flagged": 0,
+  "false_examples": []
+ }
+}

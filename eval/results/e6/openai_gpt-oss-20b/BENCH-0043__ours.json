@@ -1,0 +1,159 @@
+{
+ "case": "BENCH-0043",
+ "family": "MULE",
+ "should_file": true,
+ "injected": false,
+ "arm": "ours",
+ "model": "openai/gpt-oss-20b",
+ "filed": true,
+ "status": "NEEDS_REVIEW",
+ "error": null,
+ "text": "The account holder is Hira Shah with account number PK**HABB****3642, opened on 23 February 2022. The subject declares a student occupation and a monthly income of PKR 30,000 per month. Between 3 April 2026 and 11 April 2026, the account received 16 credits totalling PKR 1,018,000 and made 4 debits totalling PKR 910,000. All 16 credits arrived via interbank (IBFT) transfers from 15 distinct senders. Tazama flagged the activity on 11 April 2026, scoring a typology MULE-01 of 360 against a threshold of 300. The presence of 15 distinct inbound senders in a short period is consistent with the red flag of many unrelated inbound senders. Debits equal to 89% of credits with a median of 1.1 hours between the latest credit and each debit suggest most inbound value leaves the account within hours. The credits in the activity window were 33.9 times the declared monthly income, indicating activity inconsistent with the subject's declared student occupation and income. Two sender banks raised fraud recall requests against inbound transfers to this account, citing scam complaints. Taken together, these indicators are consistent with suspected money mule activity, given the subject's student occupation, declared income, and the high volume of inbound transfers from many senders. PKR 609,000 was sent to QuickPay wallet ***0932 (WLT****0932, Synthetic EMI) in 2 transactions. PKR 301,000 was withdrawn as Cash (ATM) in 2 transactions. No match on sanctions, PEP or adverse-media screening was found on 29 April 2026. Outgoing wallet transfers were placed on hold pending review, with no contact made with the customer about this review.",
+ "sentences": [
+  {
+   "idx": 1,
+   "text": "The account holder is Hira Shah with account number PK**HABB****3642, opened on 23 February 2022.",
+   "cites": [
+    "F01",
+    "F02",
+    "F04"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 2,
+   "text": "The subject declares a student occupation and a monthly income of PKR 30,000 per month.",
+   "cites": [
+    "F03",
+    "F05"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 3,
+   "text": "Between 3 April 2026 and 11 April 2026, the account received 16 credits totalling PKR 1,018,000 and made 4 debits totalling PKR 910,000.",
+   "cites": [
+    "F10",
+    "F11",
+    "F12"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 4,
+   "text": "All 16 credits arrived via interbank (IBFT) transfers from 15 distinct senders.",
+   "cites": [
+    "F13",
+    "F16"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 5,
+   "text": "Tazama flagged the activity on 11 April 2026, scoring a typology MULE-01 of 360 against a threshold of 300.",
+   "cites": [
+    "F06",
+    "F07"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 6,
+   "text": "The presence of 15 distinct inbound senders in a short period is consistent with the red flag of many unrelated inbound senders.",
+   "cites": [
+    "F16",
+    "H2"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 7,
+   "text": "Debits equal to 89% of credits with a median of 1.1 hours between the latest credit and each debit suggest most inbound value leaves the account within hours.",
+   "cites": [
+    "F20",
+    "F21",
+    "H2"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 8,
+   "text": "The credits in the activity window were 33.9 times the declared monthly income, indicating activity inconsistent with the subject's declared student occupation and income.",
+   "cites": [
+    "F15",
+    "F03",
+    "F05",
+    "H2"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 9,
+   "text": "Two sender banks raised fraud recall requests against inbound transfers to this account, citing scam complaints.",
+   "cites": [
+    "F23",
+    "H2"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 10,
+   "text": "Taken together, these indicators are consistent with suspected money mule activity, given the subject's student occupation, declared income, and the high volume of inbound transfers from many senders.",
+   "cites": [
+    "H2",
+    "F03",
+    "F05",
+    "F15",
+    "F16"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 11,
+   "text": "PKR 609,000 was sent to QuickPay wallet ***0932 (WLT****0932, Synthetic EMI) in 2 transactions.",
+   "cites": [
+    "F17"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 12,
+   "text": "PKR 301,000 was withdrawn as Cash (ATM) in 2 transactions.",
+   "cites": [
+    "F18"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 13,
+   "text": "No match on sanctions, PEP or adverse-media screening was found on 29 April 2026.",
+   "cites": [
+    "F22"
+   ],
+   "status": "active"
+  },
+  {
+   "idx": 14,
+   "text": "Outgoing wallet transfers were placed on hold pending review, with no contact made with the customer about this review.",
+   "cites": [
+    "F24"
+   ],
+   "status": "active"
+  }
+ ],
+ "checks": {
+  "amounts": 5,
+  "unsupported_amounts": 0,
+  "novel_entities": [],
+  "guilt": false,
+  "tipping_off": false,
+  "pii": false,
+  "injection_echo": false,
+  "intent_language": [],
+  "words": 259
+ },
+ "stats": null,
+ "removed": null,
+ "abstain": null,
+ "seconds": 23.7
+}
