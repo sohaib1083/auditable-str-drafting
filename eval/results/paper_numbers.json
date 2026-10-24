@@ -2,42 +2,51 @@
  "e6": {
   "GPT-OSS-120B": {
    "naive": {
-    "n_cases": 40,
-    "n_pos": 19,
-    "n_neg": 21,
-    "filed_pos": 19,
-    "filed_neg": 11,
-    "n_narratives": 30,
-    "amounts": 244,
-    "unsupported_amounts": 28,
-    "approx_amounts": 23,
-    "narr_approx_amount": 14,
-    "narr_unsupported_amount": 24,
-    "narr_invented_name": 0,
-    "narr_intent": 6,
-    "narr_hedged_intent": 11,
+    "n_cases": 60,
+    "n_pos": 20,
+    "n_neg": 40,
+    "filed_pos": 20,
+    "filed_neg": 30,
+    "n_narratives": 50,
+    "amounts": 388,
+    "unsupported_amounts": 46,
+    "approx_amounts": 39,
+    "narr_approx_amount": 24,
+    "narr_unsupported_amount": 38,
+    "narr_invented_name": 5,
+    "narr_intent": 9,
+    "narr_hedged_intent": 19,
     "narr_tipping_off": 0,
     "narr_pii": 0,
-    "narr_injection_echo": 0,
-    "n_injected_narratives": 4,
-    "narr_any_error": 26,
+    "narr_injection_echo": 2,
+    "n_injected_narratives": 8,
+    "narr_any_error": 42,
     "intent_examples": [
      "deliberately",
      "illicit funds",
+     "illicit proceeds",
      "to avoid detection",
      "to evade detection",
      "to evade reporting"
     ],
-    "name_examples": []
+    "name_examples": [
+     "Fahad Saeed",
+     "Fahad Shafiq",
+     "Faisal Farooq",
+     "Imran Tariq",
+     "Nadia Ali",
+     "Omer Ghani",
+     "Zeeshan Yousaf"
+    ]
    },
    "ours": {
-    "n_cases": 40,
-    "n_pos": 19,
-    "n_neg": 21,
-    "filed_pos": 19,
+    "n_cases": 60,
+    "n_pos": 20,
+    "n_neg": 40,
+    "filed_pos": 20,
     "filed_neg": 0,
-    "n_narratives": 19,
-    "amounts": 170,
+    "n_narratives": 20,
+    "amounts": 176,
     "unsupported_amounts": 0,
     "approx_amounts": 0,
     "narr_approx_amount": 0,
@@ -67,14 +76,14 @@
     "approx_amounts": 52,
     "narr_approx_amount": 28,
     "narr_unsupported_amount": 17,
-    "narr_invented_name": 15,
+    "narr_invented_name": 13,
     "narr_intent": 7,
     "narr_hedged_intent": 31,
     "narr_tipping_off": 0,
     "narr_pii": 0,
     "narr_injection_echo": 1,
     "n_injected_narratives": 4,
-    "narr_any_error": 30,
+    "narr_any_error": 28,
     "intent_examples": [
      "deliberately",
      "intent to evade",
@@ -82,14 +91,14 @@
      "to evade reporting"
     ],
     "name_examples": [
-     "Adeel Aslam",
-     "Areeba Shah",
-     "Arslan Akhtar",
-     "Arslan Butt",
      "Bilal Saeed",
-     "Danish Riaz",
+     "Bilal Yousaf",
+     "Bilal Zafar",
+     "Danish Saeed",
      "Fahad Yousaf",
-     "Fatima Qadir"
+     "Fatima Latif",
+     "Fatima Zafar",
+     "Hamid Akhtar"
     ]
    },
    "ours": {
@@ -129,7 +138,7 @@
     "approx_amounts": 36,
     "narr_approx_amount": 25,
     "narr_unsupported_amount": 42,
-    "narr_invented_name": 8,
+    "narr_invented_name": 7,
     "narr_intent": 1,
     "narr_hedged_intent": 13,
     "narr_tipping_off": 0,
@@ -142,13 +151,13 @@
     ],
     "name_examples": [
      "Aiman Butt",
+     "Aiman Imtiaz",
+     "Bilal Naveed",
      "Central Bank of Pakistan",
+     "Hamid Akhtar",
      "Hamid Zafar",
-     "Kiran Naveed",
-     "Mariam Aslam",
-     "Mehwish Imtiaz",
-     "Nadia Aslam",
-     "Waqas Naveed"
+     "Kashif Zafar",
+     "Nadia Aslam"
     ]
    },
    "ours": {
@@ -178,12 +187,12 @@
  },
  "e6_tests": {
   "GPT-OSS-120B": {
-   "false_filing_p": 0.0009765625,
+   "false_filing_p": 1.862645149230957e-09,
    "false_filing_discordant": [
-    11,
+    30,
     0
    ],
-   "error_pairs": 19,
+   "error_pairs": 20,
    "error_p": 1.52587890625e-05,
    "error_discordant": [
     17,
@@ -197,9 +206,9 @@
     0
    ],
    "error_pairs": 20,
-   "error_p": 0.000244140625,
+   "error_p": 0.00048828125,
    "error_discordant": [
-    13,
+    12,
     0
    ]
   },
