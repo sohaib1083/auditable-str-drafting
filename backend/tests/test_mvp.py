@@ -82,6 +82,8 @@ def test_three_cases_expected_outcomes(client):
     assert t["draft"]["status"] == "ABSTAINED"
     assert t["draft"]["abstain"]["decision"] == "INSUFFICIENT_GROUNDS"
     assert t["sentences"] == []
+    v = client.get("/api/cases/CASE-1003/verify", headers=h).json()
+    assert v["verdict"] == "PASS", v["problems"]  # a declined draft has no narrative hash to mismatch
 
 
 def test_injected_faults_are_caught(client):
@@ -131,6 +133,10 @@ def test_edit_with_unsupported_number_is_refused(client):
     ok = client.patch(f"/api/drafts/{d['draft']['id']}/sentences/{s['id']}", headers=h,
                       json={"action": "edit", "reason_code": "EDIT_WORDING", "text": s["text"].replace("made over the counter", "deposited over the counter")})
     assert ok.status_code == 200, ok.text
+    conn = sqlite3.connect(settings.db_path)
+    refused = conn.execute("SELECT COUNT(*) FROM trail WHERE action='EDIT_REFUSED' AND draft_id=?", (d["draft"]["id"],)).fetchone()[0]
+    conn.close()
+    assert refused == 1, "a refused edit must stay in the audit trail"
 
 
 def test_submit_requires_decision_and_review(client):
@@ -177,6 +183,25 @@ def test_mlro_who_reviewed_cannot_approve(client):
     r = client.post(f"/api/drafts/{did}/approve", headers=m,
                     json={"attestation": "Attesting to my own submission here.", "content_hash": sub["content_hash"]})
     assert r.status_code == 403
+    conn = sqlite3.connect(settings.db_path)
+    refused = conn.execute("SELECT COUNT(*) FROM trail WHERE action='APPROVAL_REFUSED' AND draft_id=?", (did,)).fetchone()[0]
+    conn.close()
+    assert refused == 1, "a refused self-approval must stay in the audit trail"
+
+
+def test_audit_pack_is_complete_for_independent_audit(client):
+    """Pack 1.1 carries the whole evidence chain and fact table, the allow-lists and the release (E7)."""
+    h, sub, did = _submitted(client)
+    m = login(client, "bilal")
+    client.post(f"/api/drafts/{did}/approve", headers=m,
+                json={"attestation": "I have reviewed each claim against its evidence and approve filing.", "content_hash": sub["content_hash"]})
+    pack = client.get(f"/api/drafts/{did}/audit-pack?format=json", headers=login(client, "sara")).json()
+    assert pack["pack_version"] == "1.1" and pack["facts_scope"] == "full" and pack["evidence_scope"] == "full"
+    assert [e["seq"] for e in pack["evidence"]] == list(range(1, len(pack["evidence"]) + 1))
+    assert pack["outline"]["slots"] and pack["actors"]
+    typ = next(t for t in pack["A3_A4_trail"] if t["action"] == "AGENT_RUN" and t["detail"]["agent"] == "typology_analyst")
+    assert typ["detail"]["abstain_confidence"] == settings.abstain_confidence
+    assert all({"support", "counter"} <= set(e) for e in typ["detail"]["evaluated"])
 
 
 def test_returned_draft_can_be_approved_by_same_mlro(client):

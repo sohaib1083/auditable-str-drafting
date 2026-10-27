@@ -1,0 +1,74 @@
+{
+ "label": "v1.0",
+ "provider": "groq",
+ "model": "openai/gpt-oss-120b",
+ "run_at": "2026-10-24T13:11:02+00:00",
+ "drafted": {
+  "n": 8,
+  "pass": 0,
+  "builtin_check_pass": 8,
+  "questions": {
+   "A1": {
+    "ok": 8
+   },
+   "A2": {
+    "ok": 8
+   },
+   "A3": {
+    "unanswerable": 8,
+    "reasons": {
+     "the fact table in the pack does not reproduce the recorded fact-table hash, so the drafter's input cannot be confirmed": 8,
+     "model call record (exact request hash and parameters) not stored": 8,
+     "model calls made to repair failed sentences are not recorded": 6
+    }
+   },
+   "A4": {
+    "ok": 8
+   },
+   "A5": {
+    "ok": 8
+   },
+   "A6": {
+    "unanswerable": 8,
+    "reasons": {
+     "evidence entries [3, 4] are not in the pack, so the evidence chain cannot be walked": 4,
+     "evidence entries [1, 3, 4] are not in the pack, so the evidence chain cannot be walked": 4
+    }
+   },
+   "A7": {
+    "unanswerable": 8,
+    "reasons": {
+     "full evidence not in the pack, so facts cannot be recomputed": 8,
+     "full fact table not in the pack": 8,
+     "the planner's allow-lists are not in the pack, so the verifier cannot be re-run": 8,
+     "the confidence threshold used is not recorded": 8
+    }
+   },
+   "A8": {
+    "unanswerable": 8,
+    "reasons": {
+     "counter-indicators that did not fire are not recorded, so the record cannot show they were checked": 8,
+     "threshold for 'supported' not recorded": 8
+    }
+   },
+   "A9": {
+    "ok": 8
+   },
+   "A10": {
+    "unanswerable": 8,
+    "reasons": {
+     "the pack does not name the system release, so its benchmark results cannot be found": 8
+    }
+   }
+  }
+ },
+ "controls": {
+  "bad_edit_refused": 8,
+  "edit_refusal_logged": 0,
+  "self_approval_refused": 8,
+  "self_approval_logged": 0,
+  "wording_edit": 8,
+  "n": 8
+ },
+ "failed_drafts": 2
+}

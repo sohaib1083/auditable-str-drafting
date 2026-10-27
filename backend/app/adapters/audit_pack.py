@@ -3,25 +3,40 @@
 JSON for machines (diffable, re-verifiable) and a self-contained HTML page
 for people (prints to PDF from any browser). Contents map to the audit
 questions in 02-problem-definition.md §3.
+
+Version 1.1 carries the whole evidence chain and fact table (not only the cited
+parts), the planner's allow-lists, the reasons for a decline, an actor directory
+and the release manifest. Without them an independent auditor cannot walk the
+evidence chain, confirm the drafter's input, re-run the verifier or find the
+benchmark results for the release (experiment E7).
 """
 from __future__ import annotations
 
 import html
+import json
 from typing import Any
 
 from app import chain
+from app.config import BASE_DIR
+
+PACK_VERSION = "1.1"
+
+
+def release_manifest() -> dict[str, Any] | None:
+    """The release this deployment runs (component versions and its published benchmark results), if one is installed."""
+    p = BASE_DIR / "release.json"
+    return json.loads(p.read_text()) if p.exists() else None
 
 
 def build_json(case: dict[str, Any], draft: dict[str, Any], sentences: list[dict[str, Any]], evidence: list[dict[str, Any]],
                trail: list[dict[str, Any]], decision: dict[str, Any] | None, filings: list[dict[str, Any]],
-               integrity: dict[str, Any], users: dict[str, str]) -> dict[str, Any]:
+               integrity: dict[str, Any], users: dict[str, str],
+               actors: dict[str, dict[str, str]] | None = None) -> dict[str, Any]:
     active = [s for s in sentences if s["status"] == "active"]
     cited = {c for s in active for c in s["cites"]}
     facts = draft.get("facts") or []
-    used_facts = [f for f in facts if f["id"] in cited or any(f["id"] in h["support_fact_ids"] for h in draft.get("hypotheses") or [] if h["id"] in cited)]
-    ev_ids = {e for f in used_facts for e in f["derived_from"]}
     pack = {
-        "pack_version": "1.0",
+        "pack_version": PACK_VERSION,
         "generated_at": chain.now_iso(),
         "case": {k: case[k] for k in ("id", "ref", "title", "jurisdiction", "status", "detected_at", "opened_at")},
         "A5_decision": decision and {**decision, "decided_by": users.get(decision["decided_by"], decision["decided_by"])},
@@ -35,15 +50,22 @@ def build_json(case: dict[str, Any], draft: dict[str, Any], sentences: list[dict
                        "status": s["status"], "review": s["review_status"], "reason": s["review_reason"],
                        "A2_verdict": s["verdict"], "history": s["history"]} for s in sentences],
         "removed_by_verifier": draft.get("removed") or [],
-        "facts": used_facts,
+        "outline": draft.get("outline"),
+        "abstain": draft.get("abstain"),
+        "facts_scope": "full",
+        "cited_fact_ids": sorted(c for c in cited if c.startswith("F")),
+        "facts": facts,
         "A8_hypotheses": draft.get("hypotheses") or [],
+        "evidence_scope": "full",
         "evidence": [{k: e[k] for k in ("id", "seq", "type", "label", "source", "source_ref", "content", "content_hash",
-                                        "prev_hash", "entry_hash", "captured_at")} for e in evidence if e["id"] in ev_ids],
+                                        "prev_hash", "entry_hash", "captured_at")} for e in evidence],
         "A3_A4_trail": [{k: t[k] for k in ("seq", "kind", "actor", "action", "draft_id", "detail", "content_hash",
                                            "prev_hash", "entry_hash", "at")} for t in trail],
         "filings": [{k: f[k] for k in ("id", "channel", "payload_hash", "validation", "created_at", "fiu_reference", "submitted_at")}
                     for f in filings],
         "A6_A7_integrity": integrity,
+        "actors": actors,
+        "release": release_manifest(),
     }
     pack["pack_hash"] = chain.content_hash(pack)
     return pack
@@ -112,6 +134,6 @@ suspicion formed {_e(dec.get('suspicion_formed_at'))} · deadline {_e(dec.get('d
 <h2>Removed by the verification layer before human review</h2><ul>{removed}</ul>
 <h2>A8 Typology hypotheses (support and counter-evidence)</h2><table><tr><th>ID</th><th>Hypothesis</th><th>Supported</th></tr>
 {''.join(f"<tr><td>{h['id']}</td><td>{_e(h['display'])}</td><td>{'yes' if h['supported'] else 'no'}</td></tr>" for h in pack['A8_hypotheses'])}</table>
-<h2>Evidence items in lineage</h2><table><tr><th>ID</th><th>Item</th><th>Source</th><th>Content hash</th><th>Entry hash</th></tr>{evid}</table>
+<h2>Evidence ledger (full chain)</h2><table><tr><th>ID</th><th>Item</th><th>Source</th><th>Content hash</th><th>Entry hash</th></tr>{evid}</table>
 <h2>A3/A4 Hash-chained trail</h2><table><tr><th>#</th><th>At (UTC)</th><th>Actor</th><th>Action</th><th>Entry hash</th></tr>{trail}</table>
 </body></html>"""

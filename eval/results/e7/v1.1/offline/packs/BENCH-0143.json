@@ -1,0 +1,1873 @@
+{
+ "pack_version": "1.1",
+ "generated_at": "2026-10-24T13:03:37.486997+00:00",
+ "case": {
+  "id": "BENCH-0143",
+  "ref": "SB-0143",
+  "title": "Border Struct case 143",
+  "jurisdiction": "GOAML:PK",
+  "status": "NO_SAR",
+  "detected_at": "2026-06-25T23:12:00+05:00",
+  "opened_at": "2026-06-26T23:12:00+05:00"
+ },
+ "A5_decision": {
+  "id": "DEC-93009922",
+  "case_id": "BENCH-0143",
+  "sar_required": 0,
+  "reason": "No report: the system found insufficient grounds and the analyst agrees after reviewing the counter-evidence.",
+  "suspicion_formed_at": "2026-10-24T11:03:37.459236+00:00",
+  "deadline_at": "2026-10-31T11:03:37.459236+00:00",
+  "decided_by": "Analyst A (analyst)",
+  "decided_at": "2026-10-24T13:03:37.459733+00:00"
+ },
+ "draft": {
+  "id": "D0143-1-4003",
+  "version": 1,
+  "status": "ABSTAINED",
+  "template": "goaml-pk-str@1.0.0",
+  "provider": "offline",
+  "endpoint": {
+   "id": "offline",
+   "provider": "offline",
+   "model": "template-drafter@1.0.0",
+   "location": "in-process",
+   "in_boundary": true,
+   "pseudonymise": false,
+   "approval_ref": "n/a",
+   "description": "Deterministic template drafter. No model, no network. Air-gapped profile."
+  },
+  "content_hash": null,
+  "evidence_head_at_generation": "f7a110d827e62edb7700128ae7fdea437dc14801ae303b8cace64d8edaed3393",
+  "maker": null,
+  "checker": null,
+  "attestation": null,
+  "submitted_at": null,
+  "approved_at": null,
+  "stats": {
+   "sentences": 0,
+   "abstained": true,
+   "injection_flags": []
+  }
+ },
+ "A1_claims": [],
+ "removed_by_verifier": [],
+ "outline": null,
+ "abstain": {
+  "decision": "INSUFFICIENT_GROUNDS",
+  "summary": "No typology reached the confidence threshold after counter-evidence was weighed. The system will not draft a narrative for this case.",
+  "best_hypothesis": {
+   "id": "H1",
+   "name": "Structuring (avoiding the cash reporting threshold)",
+   "confidence": 0.35
+  },
+  "hypotheses": [
+   {
+    "id": "H1",
+    "name": "Structuring (avoiding the cash reporting threshold)",
+    "confidence": 0.35,
+    "support": [
+     "More than one cash deposit on the same day",
+     "Cash volume inconsistent with the declared income"
+    ],
+    "counter": [],
+    "counter_fact_ids": []
+   },
+   {
+    "id": "H2",
+    "name": "Money mule / rapid pass-through account",
+    "confidence": 0.2,
+    "support": [
+     "Account activity inconsistent with the customer profile"
+    ],
+    "counter": [],
+    "counter_fact_ids": []
+   },
+   {
+    "id": "H3",
+    "name": "Cash volume spike without clear pattern",
+    "confidence": 0.3,
+    "support": [
+     "Cash credits well above the customer's declared income"
+    ],
+    "counter": [],
+    "counter_fact_ids": []
+   }
+  ],
+  "missing": [
+   "why: no supported typology with indicator evidence"
+  ],
+  "recommendation": "Record a documented no-file decision with reasons, or gather further evidence (e.g. source-of-funds documents) and re-run. A human may still decide to file."
+ },
+ "facts_scope": "full",
+ "cited_fact_ids": [],
+ "facts": [
+  {
+   "id": "F01",
+   "key": "subject_name",
+   "label": "Subject name",
+   "type": "entity",
+   "value": "Junaid Ghani",
+   "display": "Junaid Ghani",
+   "entities": [
+    "Junaid Ghani"
+   ],
+   "derived_from": [
+    "EV-0143-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:name",
+   "tool_version": "1.0.0",
+   "hash": "b50b8646619d32085c31fc876d69760e6cae92e606d400e28fca09d46849b67b"
+  },
+  {
+   "id": "F02",
+   "key": "subject_account",
+   "label": "Subject account",
+   "type": "entity",
+   "value": "PK**MEZN****6768",
+   "display": "PK**MEZN****6768",
+   "entities": [
+    "PK**MEZN****6768"
+   ],
+   "derived_from": [
+    "EV-0143-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:account",
+   "tool_version": "1.0.0",
+   "hash": "ff817057b690f1a04d33f8610fe3a3c4f68c1ccc7278bf8e995d94290b2d7dee"
+  },
+  {
+   "id": "F03",
+   "key": "occupation",
+   "label": "Declared occupation",
+   "type": "text",
+   "value": "Senior manager (salaried)",
+   "display": "Senior manager (salaried)",
+   "entities": [
+    "Zenith Pharma (Pvt) Ltd"
+   ],
+   "derived_from": [
+    "EV-0143-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:occupation",
+   "tool_version": "1.0.0",
+   "hash": "9c32263166d81fead3c73bc7dc402caa2732ea3d466ae8ac29c9f3446ceb4ed1"
+  },
+  {
+   "id": "F04",
+   "key": "account_opened",
+   "label": "Account opened",
+   "type": "date",
+   "value": "2018-04-26",
+   "display": "26 April 2018",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:account_opened",
+   "tool_version": "1.0.0",
+   "hash": "85f601ca47d735a9b06369ff677fd9ed20ff11719ec78883030066d6c0e23295"
+  },
+  {
+   "id": "F05",
+   "key": "declared_income",
+   "label": "Declared monthly income",
+   "type": "amount",
+   "value": 600000,
+   "display": "PKR 600,000 per month",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:declared_monthly_income",
+   "tool_version": "1.0.0",
+   "hash": "4a54ac33af894f8f06f61c1ee263fb3a4aa235c1666c7a507ac5a729df7353b0"
+  },
+  {
+   "id": "F06",
+   "key": "detection_date",
+   "label": "Alert raised by Tazama",
+   "type": "date",
+   "value": "2026-06-25",
+   "display": "25 June 2026",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0002"
+   ],
+   "method": "EXTRACTED",
+   "tool": "tazama.alert:timestamp",
+   "tool_version": "1.0.0",
+   "hash": "190bb9a0c2d93c0ea946881f95c7e2e4023aa7133c821a46f38c31cc3a7b4be6"
+  },
+  {
+   "id": "F07",
+   "key": "tazama_typology",
+   "label": "Tazama typology result",
+   "type": "score",
+   "value": {
+    "typology": "STR-PK-01@1.0.0",
+    "score": 320,
+    "threshold": 300
+   },
+   "display": "Tazama typology STR-PK-01 scored 320 against an alert threshold of 300",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0002"
+   ],
+   "method": "EXTRACTED",
+   "tool": "tazama.alert:typologyResult",
+   "tool_version": "1.0.0",
+   "hash": "2db3ff3a8ebdae8c90a1417108df1fcae86d82e49cc73cdfa35bb1e4e4fe04fb"
+  },
+  {
+   "id": "F08",
+   "key": "rule_result",
+   "label": "Tazama rule 045@1.0.0",
+   "type": "text",
+   "value": "Repeated cash deposits within 20% below the CTR threshold",
+   "display": "Tazama rule 045@1.0.0: Repeated cash deposits within 20% below the CTR threshold",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0003"
+   ],
+   "method": "EXTRACTED",
+   "tool": "tazama.rule:reason",
+   "tool_version": "1.0.0",
+   "hash": "234a0cbb9f9c7fbbdf43a7d0c5d4dfe15f08fb89cab88329f9e57247949b58b3"
+  },
+  {
+   "id": "F09",
+   "key": "rule_result",
+   "label": "Tazama rule 046@1.0.0",
+   "type": "text",
+   "value": "Cash deposits across branches in 30 days",
+   "display": "Tazama rule 046@1.0.0: Cash deposits across branches in 30 days",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0004"
+   ],
+   "method": "EXTRACTED",
+   "tool": "tazama.rule:reason",
+   "tool_version": "1.0.0",
+   "hash": "2841ca9a2802b715833657ab5184378289a976536b766315df943b27c57af948"
+  },
+  {
+   "id": "F10",
+   "key": "activity_window",
+   "label": "Activity window",
+   "type": "date_range",
+   "value": {
+    "start": "2026-06-02",
+    "end": "2026-06-25"
+   },
+   "display": "2 June 2026 to 25 June 2026",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0007",
+    "EV-0143-0008",
+    "EV-0143-0009",
+    "EV-0143-0010",
+    "EV-0143-0011",
+    "EV-0143-0012",
+    "EV-0143-0013",
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0016",
+    "EV-0143-0017",
+    "EV-0143-0018",
+    "EV-0143-0019",
+    "EV-0143-0020",
+    "EV-0143-0021",
+    "EV-0143-0022",
+    "EV-0143-0023",
+    "EV-0143-0024",
+    "EV-0143-0025",
+    "EV-0143-0026"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.window",
+   "tool_version": "1.0.0",
+   "hash": "fd37ce4ae24562a5b59ce127a96d7933544ed3c814affd17c83cf726b656db37"
+  },
+  {
+   "id": "F11",
+   "key": "credits_total",
+   "label": "Total credits",
+   "type": "amount",
+   "value": {
+    "count": 18,
+    "total": 16012000
+   },
+   "display": "18 credits totalling PKR 16,012,000",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0007",
+    "EV-0143-0008",
+    "EV-0143-0009",
+    "EV-0143-0010",
+    "EV-0143-0011",
+    "EV-0143-0013",
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0016",
+    "EV-0143-0017",
+    "EV-0143-0019",
+    "EV-0143-0020",
+    "EV-0143-0021",
+    "EV-0143-0022",
+    "EV-0143-0023",
+    "EV-0143-0024",
+    "EV-0143-0025",
+    "EV-0143-0026"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.sum",
+   "tool_version": "1.0.0",
+   "hash": "1e38c259208fe4d6adc6b18b6abc7eebd6e4409e9eba4be25c4d86b2ad613092"
+  },
+  {
+   "id": "F12",
+   "key": "debits_total",
+   "label": "Total debits",
+   "type": "amount",
+   "value": {
+    "count": 2,
+    "total": 7557000
+   },
+   "display": "2 debits totalling PKR 7,557,000",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0012",
+    "EV-0143-0018"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.sum",
+   "tool_version": "1.0.0",
+   "hash": "a7ff89779ec9a9ea86ae8c15d8a851c0f7a532781ba9277ba0bf0059c05595a3"
+  },
+  {
+   "id": "F13",
+   "key": "channels_in",
+   "label": "Credit channels",
+   "type": "text",
+   "value": {
+    "CASH_DEPOSIT": 17,
+    "IBFT": 1
+   },
+   "display": "17 cash deposits, 1 interbank (IBFT) transfers",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0007",
+    "EV-0143-0008",
+    "EV-0143-0009",
+    "EV-0143-0010",
+    "EV-0143-0011",
+    "EV-0143-0013",
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0016",
+    "EV-0143-0017",
+    "EV-0143-0019",
+    "EV-0143-0020",
+    "EV-0143-0021",
+    "EV-0143-0022",
+    "EV-0143-0023",
+    "EV-0143-0024",
+    "EV-0143-0025",
+    "EV-0143-0026"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.group_by_channel",
+   "tool_version": "1.0.0",
+   "hash": "6d1635938ee573c48f17ae0626e16f54d5f6a9461247d75ac0476e18881542fb"
+  },
+  {
+   "id": "F14",
+   "key": "ctr_threshold",
+   "label": "Cash transaction reporting threshold",
+   "type": "amount",
+   "value": 2000000,
+   "display": "PKR 2,000,000",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0001"
+   ],
+   "method": "REFERENCE",
+   "tool": "template.reference",
+   "tool_version": "1.0.0",
+   "hash": "18dd601e0e8b18cb1d0de5e5a744c8ea977e52216c0593f983a06e99e9064e26"
+  },
+  {
+   "id": "F15",
+   "key": "cash_total",
+   "label": "Cash deposits",
+   "type": "amount",
+   "value": {
+    "count": 17,
+    "total": 15412000
+   },
+   "display": "17 cash deposits totalling PKR 15,412,000",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0007",
+    "EV-0143-0009",
+    "EV-0143-0010",
+    "EV-0143-0011",
+    "EV-0143-0013",
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0016",
+    "EV-0143-0017",
+    "EV-0143-0019",
+    "EV-0143-0020",
+    "EV-0143-0021",
+    "EV-0143-0022",
+    "EV-0143-0023",
+    "EV-0143-0024",
+    "EV-0143-0025",
+    "EV-0143-0026"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.sum",
+   "tool_version": "1.0.0",
+   "hash": "727db71e7799c3016bdad531fc91e3acd2f9735887c13b7cef351eb4e4553866"
+  },
+  {
+   "id": "F16",
+   "key": "near_threshold",
+   "label": "Cash deposits just below the threshold",
+   "type": "amount",
+   "value": {
+    "count": 3,
+    "of": 17,
+    "total": 5521000,
+    "band": [
+     1600000.0,
+     1999999
+    ]
+   },
+   "display": "3 of 17 cash deposits (18%) were between PKR 1,600,000 and PKR 1,999,999, totalling PKR 5,521,000",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0001",
+    "EV-0143-0007",
+    "EV-0143-0020",
+    "EV-0143-0023"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.threshold_band",
+   "tool_version": "1.0.0",
+   "hash": "231efb7f7a753f779d6321444b3d9f011f7920dace0b3e8f1e0d5aaaa5081d6b"
+  },
+  {
+   "id": "F17",
+   "key": "branches",
+   "label": "Branches used for cash deposits",
+   "type": "entity_list",
+   "value": {
+    "Saddar Branch": 17
+   },
+   "display": "1 branch (Saddar Branch)",
+   "entities": [
+    "Saddar Branch",
+    "Karachi"
+   ],
+   "derived_from": [
+    "EV-0143-0007",
+    "EV-0143-0009",
+    "EV-0143-0010",
+    "EV-0143-0011",
+    "EV-0143-0013",
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0016",
+    "EV-0143-0017",
+    "EV-0143-0019",
+    "EV-0143-0020",
+    "EV-0143-0021",
+    "EV-0143-0022",
+    "EV-0143-0023",
+    "EV-0143-0024",
+    "EV-0143-0025",
+    "EV-0143-0026"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.distinct",
+   "tool_version": "1.0.0",
+   "hash": "de448fa7a38dc9854de62c49ba9d72329083c6fee4c38f493f4da49ed9505f70"
+  },
+  {
+   "id": "F18",
+   "key": "same_day_cash",
+   "label": "Days with more than one cash deposit",
+   "type": "date_list",
+   "value": [
+    "2026-06-08",
+    "2026-06-18"
+   ],
+   "display": "more than one cash deposit on 2 days (8 June 2026, 18 June 2026)",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0021",
+    "EV-0143-0022"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.same_day",
+   "tool_version": "1.0.0",
+   "hash": "bd5480f1c6a177facfd1539cbb72b070601f7378b94ca7812c18c6ce59ea9caf"
+  },
+  {
+   "id": "F19",
+   "key": "income_multiple",
+   "label": "Credits compared with declared monthly income",
+   "type": "ratio",
+   "value": 26.7,
+   "display": "credits in the activity window were 26.7 times the declared monthly income",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0005",
+    "EV-0143-0007",
+    "EV-0143-0008",
+    "EV-0143-0009",
+    "EV-0143-0010",
+    "EV-0143-0011",
+    "EV-0143-0013",
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0016",
+    "EV-0143-0017",
+    "EV-0143-0019",
+    "EV-0143-0020",
+    "EV-0143-0021",
+    "EV-0143-0022",
+    "EV-0143-0023",
+    "EV-0143-0024",
+    "EV-0143-0025",
+    "EV-0143-0026"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.ratio",
+   "tool_version": "1.0.0",
+   "hash": "e69cf3fc50b0963e0e93d6798476cd9e4394e07b5a2a7279d5aafb6c291fe576"
+  },
+  {
+   "id": "F20",
+   "key": "beneficiary",
+   "label": "Outflow to Sheraz Traders",
+   "type": "amount",
+   "value": {
+    "name": "Sheraz Traders",
+    "count": 1,
+    "total": 4793000
+   },
+   "display": "PKR 4,793,000 was sent to Sheraz Traders (PK**SHER****1518, Synthetic Bank A) in 1 transaction",
+   "entities": [
+    "Sheraz Traders",
+    "PK**SHER****1518",
+    "Synthetic Bank A"
+   ],
+   "derived_from": [
+    "EV-0143-0012"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.group_by_counterparty",
+   "tool_version": "1.0.0",
+   "hash": "dbced1991878a281e8187f1c37dfb5ee3ed25b7af8c04e42d4247b781905baf0"
+  },
+  {
+   "id": "F21",
+   "key": "beneficiary",
+   "label": "Outflow to Al-Noor Exchange Company",
+   "type": "amount",
+   "value": {
+    "name": "Al-Noor Exchange Company",
+    "count": 1,
+    "total": 2764000
+   },
+   "display": "PKR 2,764,000 was sent to Al-Noor Exchange Company (PK**AL-N****1888, Synthetic Bank B) in 1 transaction",
+   "entities": [
+    "Al-Noor Exchange Company",
+    "PK**AL-N****1888",
+    "Synthetic Bank B"
+   ],
+   "derived_from": [
+    "EV-0143-0018"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.group_by_counterparty",
+   "tool_version": "1.0.0",
+   "hash": "052a5a3b95fe8039e35dde30a00393d69867070845d6e9628188e2a5d8674c6d"
+  },
+  {
+   "id": "F22",
+   "key": "outflow_ratio",
+   "label": "Share of credits paid out",
+   "type": "ratio",
+   "value": 0.47,
+   "display": "debits equal to 47% of credits",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0007",
+    "EV-0143-0008",
+    "EV-0143-0009",
+    "EV-0143-0010",
+    "EV-0143-0011",
+    "EV-0143-0012",
+    "EV-0143-0013",
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0016",
+    "EV-0143-0017",
+    "EV-0143-0018",
+    "EV-0143-0019",
+    "EV-0143-0020",
+    "EV-0143-0021",
+    "EV-0143-0022",
+    "EV-0143-0023",
+    "EV-0143-0024",
+    "EV-0143-0025",
+    "EV-0143-0026"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.ratio",
+   "tool_version": "1.0.0",
+   "hash": "6428598597249fd11a1ddd071f51bbd1a8f25024c2e389e06ba1e96d49587861"
+  },
+  {
+   "id": "F23",
+   "key": "pass_through_time",
+   "label": "Time from last credit to each debit",
+   "type": "duration",
+   "value": 2.8,
+   "display": "a median of 2.8 hours between the latest credit and each debit",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0007",
+    "EV-0143-0008",
+    "EV-0143-0009",
+    "EV-0143-0010",
+    "EV-0143-0011",
+    "EV-0143-0012",
+    "EV-0143-0013",
+    "EV-0143-0014",
+    "EV-0143-0015",
+    "EV-0143-0016",
+    "EV-0143-0017",
+    "EV-0143-0018",
+    "EV-0143-0019",
+    "EV-0143-0020",
+    "EV-0143-0021",
+    "EV-0143-0022",
+    "EV-0143-0023",
+    "EV-0143-0024",
+    "EV-0143-0025",
+    "EV-0143-0026"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.pass_through",
+   "tool_version": "1.0.0",
+   "hash": "1d2496e61bf7d53430392b572e48eeb9def9c47e4fb81d915cf276e7ca1e9386"
+  },
+  {
+   "id": "F24",
+   "key": "screening",
+   "label": "Screening result",
+   "type": "text",
+   "value": {
+    "sanctions": "NO_MATCH",
+    "pep": "NO_MATCH",
+    "adverse_media": "NO_MATCH"
+   },
+   "display": "no match on sanctions, PEP or adverse-media screening on 29 June 2026",
+   "entities": [],
+   "derived_from": [
+    "EV-0143-0006"
+   ],
+   "method": "EXTRACTED",
+   "tool": "screening.result",
+   "tool_version": "1.0.0",
+   "hash": "3ec3b161f4f54613c2b39bd06b95921af53c71961b960d25ba894336a506029c"
+  },
+  {
+   "id": "F25",
+   "key": "note_action",
+   "label": "Note by L2 analyst",
+   "type": "note",
+   "value": "Account placed under enhanced monitoring pending the reporting decision. No contact made with the customer about this review.",
+   "display": "L2 analyst (29 June 2026): \"Account placed under enhanced monitoring pending the reporting decision. No contact made with the customer about this review.\"",
+   "entities": [
+    "L2 analyst"
+   ],
+   "derived_from": [
+    "EV-0143-0027"
+   ],
+   "method": "HUMAN",
+   "tool": "cms.notes",
+   "tool_version": "1.0.0",
+   "hash": "43c7bcacfaf532180742058bfa4e3642ac344305000916637d66aecf5973fc6e"
+  }
+ ],
+ "A8_hypotheses": [
+  {
+   "id": "H1",
+   "typology_id": "STRUCTURING",
+   "name": "Structuring (avoiding the cash reporting threshold)",
+   "short": "structuring",
+   "confidence": 0.35,
+   "supported": false,
+   "support": [
+    {
+     "id": "STR-3",
+     "text": "More than one cash deposit on the same day",
+     "weight": 0.1,
+     "fact_ids": [
+      "F18"
+     ]
+    },
+    {
+     "id": "STR-4",
+     "text": "Cash volume inconsistent with the declared income",
+     "weight": 0.2,
+     "fact_ids": [
+      "F19",
+      "F05"
+     ]
+    }
+   ],
+   "counter": [],
+   "support_fact_ids": [
+    "F05",
+    "F18",
+    "F19"
+   ],
+   "counter_fact_ids": [],
+   "tazama_match": true,
+   "catalogue_version": "0.1.0",
+   "display": "Structuring (avoiding the cash reporting threshold) — confidence 0.35; indicators: STR-3, STR-4",
+   "hash": "b0c925f98f189891ad784ceaa7947a16ba08f2940fa6d6944ae9a867782fc0ab"
+  },
+  {
+   "id": "H2",
+   "typology_id": "MONEY_MULE",
+   "name": "Money mule / rapid pass-through account",
+   "short": "money mule activity",
+   "confidence": 0.2,
+   "supported": false,
+   "support": [
+    {
+     "id": "MUL-3",
+     "text": "Account activity inconsistent with the customer profile",
+     "weight": 0.2,
+     "fact_ids": [
+      "F19",
+      "F03",
+      "F05"
+     ]
+    }
+   ],
+   "counter": [],
+   "support_fact_ids": [
+    "F03",
+    "F05",
+    "F19"
+   ],
+   "counter_fact_ids": [],
+   "tazama_match": false,
+   "catalogue_version": "0.1.0",
+   "display": "Money mule / rapid pass-through account — confidence 0.20; indicators: MUL-3",
+   "hash": "2fa5a0b5dbd2919fa948ade157ff4bbe75153e9c2cf0e7734f0ab6705ba5f0de"
+  },
+  {
+   "id": "H3",
+   "typology_id": "UNEXPLAINED_VOLUME",
+   "name": "Cash volume spike without clear pattern",
+   "short": "an unexplained increase in cash activity",
+   "confidence": 0.3,
+   "supported": false,
+   "support": [
+    {
+     "id": "VOL-1",
+     "text": "Cash credits well above the customer's declared income",
+     "weight": 0.3,
+     "fact_ids": [
+      "F19"
+     ]
+    }
+   ],
+   "counter": [],
+   "support_fact_ids": [
+    "F19"
+   ],
+   "counter_fact_ids": [],
+   "tazama_match": false,
+   "catalogue_version": "0.1.0",
+   "display": "Cash volume spike without clear pattern — confidence 0.30; indicators: VOL-1",
+   "hash": "52bd2277ee5f18cf5192c441d2face04604198d5d1b6366af2327d6f31dde1c1"
+  }
+ ],
+ "evidence_scope": "full",
+ "evidence": [
+  {
+   "id": "EV-0143-0001",
+   "seq": 1,
+   "type": "reference",
+   "label": "Cash transaction reporting threshold",
+   "source": "template:goaml-pk-str@1.0.0",
+   "source_ref": "AML Act 2010 / FMU CTR reporting threshold for cash transactions (verify current value)",
+   "content": {
+    "ctr_threshold": 2000000,
+    "currency": "PKR",
+    "near_threshold_band_pct": 80,
+    "note": "Deposits at or above 80% of the CTR threshold but below it are treated as near-threshold."
+   },
+   "content_hash": "763b91a6e7d0ed45c1b2add59584de79bd10ca51026a1eb6ed7d094a113fecb4",
+   "prev_hash": "95b92544767236fb28e22c9ae71c73614348e4678c487fc71b93bef0d80421ee",
+   "entry_hash": "7ab1cd8a2bda44ff69d93deac3f25de7faca5f090aa62d63c4da62361636bf5e",
+   "captured_at": "2026-10-24T13:03:37.344874+00:00"
+  },
+  {
+   "id": "EV-0143-0002",
+   "seq": 2,
+   "type": "tazama_alert",
+   "label": "Tazama alert ALRT-B0143",
+   "source": "tazama:relay-service",
+   "source_ref": "alert/ALRT-B0143",
+   "content": {
+    "alertId": "ALRT-B0143",
+    "timestamp": "2026-06-25T23:12:00+05:00",
+    "evaluationID": "eval-B0143",
+    "typology": "STR-PK-01@1.0.0",
+    "score": 320,
+    "alertThreshold": 300,
+    "interdictionThreshold": 600,
+    "trigger": {
+     "OrgnlEndToEndId": "TB0143-0020",
+     "TxSts": "ACCC",
+     "IntrBkSttlmAmt": {
+      "Amt": 541000,
+      "Ccy": "PKR"
+     }
+    }
+   },
+   "content_hash": "4efa8520c381b617ec1a50b54fb200e64b62c56a6c1ef29a0e88594a00a16607",
+   "prev_hash": "7ab1cd8a2bda44ff69d93deac3f25de7faca5f090aa62d63c4da62361636bf5e",
+   "entry_hash": "736a028e056e7af2b92da2f325e25905c9594a40e4074fc6e3fcc4c44239c028",
+   "captured_at": "2026-10-24T13:03:37.344957+00:00"
+  },
+  {
+   "id": "EV-0143-0003",
+   "seq": 3,
+   "type": "rule_result",
+   "label": "Rule 045@1.0.0 .01",
+   "source": "tazama:rule-processor",
+   "source_ref": "alert/ALRT-B0143/rule/045@1.0.0",
+   "content": {
+    "id": "045@1.0.0",
+    "cfg": "1.0.0",
+    "subRuleRef": ".01",
+    "wght": 200,
+    "reason": "Repeated cash deposits within 20% below the CTR threshold",
+    "typology": "STR-PK-01@1.0.0"
+   },
+   "content_hash": "50d4dec3ea76a4febd40f9b6feb9f98f47a5af09bda221ee116ae8729b71c1c0",
+   "prev_hash": "736a028e056e7af2b92da2f325e25905c9594a40e4074fc6e3fcc4c44239c028",
+   "entry_hash": "e8d02800e42701508b89d4dc1c04cb1bb874868f923f1a61ffc1d990db4b47fb",
+   "captured_at": "2026-10-24T13:03:37.345001+00:00"
+  },
+  {
+   "id": "EV-0143-0004",
+   "seq": 4,
+   "type": "rule_result",
+   "label": "Rule 046@1.0.0 .01",
+   "source": "tazama:rule-processor",
+   "source_ref": "alert/ALRT-B0143/rule/046@1.0.0",
+   "content": {
+    "id": "046@1.0.0",
+    "cfg": "1.0.0",
+    "subRuleRef": ".01",
+    "wght": 120,
+    "reason": "Cash deposits across branches in 30 days",
+    "typology": "STR-PK-01@1.0.0"
+   },
+   "content_hash": "20417fb33d4266dd78c98211ce74510b42f64ea37cee875eb7ae96e9757485c7",
+   "prev_hash": "e8d02800e42701508b89d4dc1c04cb1bb874868f923f1a61ffc1d990db4b47fb",
+   "entry_hash": "115fb7404fc01cc1c06e7fa5e779e00484b78f5a38c81e938bdcb8e410f91805",
+   "captured_at": "2026-10-24T13:03:37.345034+00:00"
+  },
+  {
+   "id": "EV-0143-0005",
+   "seq": 5,
+   "type": "kyc",
+   "label": "KYC profile",
+   "source": "cms:customer-profile",
+   "source_ref": "customer/PK**MEZN****6768",
+   "content": {
+    "name": "Junaid Ghani",
+    "account": "PK**MEZN****6768",
+    "cnic": "457141-5558237-3",
+    "dob": "1990-01-01",
+    "account_opened": "2018-04-26",
+    "city": "Karachi",
+    "risk_rating": "Low",
+    "customer_type": "individual",
+    "declared_monthly_turnover": null,
+    "occupation": "Senior manager (salaried)",
+    "employer": "Zenith Pharma (Pvt) Ltd",
+    "declared_monthly_income": 600000
+   },
+   "content_hash": "bcbb647dfab4bff46c5e647381ad480bf19e3b2d64ca528e343c03661474794f",
+   "prev_hash": "115fb7404fc01cc1c06e7fa5e779e00484b78f5a38c81e938bdcb8e410f91805",
+   "entry_hash": "71a921be04d3de67ce4b0a400df21c3ef3e2920c0384172f49bb65262e222e2f",
+   "captured_at": "2026-10-24T13:03:37.345068+00:00"
+  },
+  {
+   "id": "EV-0143-0006",
+   "seq": 6,
+   "type": "screening",
+   "label": "Sanctions / PEP / adverse-media screening",
+   "source": "screening:internal",
+   "source_ref": "screening/BENCH-0143",
+   "content": {
+    "provider": "Internal screening list (synthetic)",
+    "screened_at": "2026-06-29T09:00:00+05:00",
+    "sanctions": "NO_MATCH",
+    "pep": "NO_MATCH",
+    "adverse_media": "NO_MATCH"
+   },
+   "content_hash": "c8d3daeab3749bdcde8f876d8b545d5289bb4f5ea0875eeb2fbaf12cf9d77e79",
+   "prev_hash": "71a921be04d3de67ce4b0a400df21c3ef3e2920c0384172f49bb65262e222e2f",
+   "entry_hash": "237c0c4c7ada29368aaa579a0dbfecb905ecffabf9eee7422084dd643cf0ea52",
+   "captured_at": "2026-10-24T13:03:37.345102+00:00"
+  },
+  {
+   "id": "EV-0143-0007",
+   "seq": 7,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0001",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0001",
+   "content": {
+    "txn_id": "TB0143-0001",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-02T19:00:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 1811000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "fe17de3663fc202cd46248bc10acb6744bef8a044d2838a4c7359329406a46e3",
+   "prev_hash": "237c0c4c7ada29368aaa579a0dbfecb905ecffabf9eee7422084dd643cf0ea52",
+   "entry_hash": "c326b3fa38de57e99fe904e3f13bb81704f06c4820ae2a9e93043c0a8c186089",
+   "captured_at": "2026-10-24T13:03:37.345143+00:00"
+  },
+  {
+   "id": "EV-0143-0008",
+   "seq": 8,
+   "type": "transaction",
+   "label": "Ibft credit TB0143-0002",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0002",
+   "content": {
+    "txn_id": "TB0143-0002",
+    "currency": "PKR",
+    "memo": "SALARY",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**MEZN****3531",
+    "counterparty_bank": "Synthetic Bank A",
+    "booked_at": "2026-06-03T18:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 600000,
+    "counterparty_name": "Zenith Pharma (Pvt) Ltd"
+   },
+   "content_hash": "0d1ed6ef8bb082d9564c795a2a87ce6e5ad4f81e94880de0ca80a9146da3eff8",
+   "prev_hash": "c326b3fa38de57e99fe904e3f13bb81704f06c4820ae2a9e93043c0a8c186089",
+   "entry_hash": "94cd15b5de5c649f6c3123609609a206a7fce659370c30a41f5e01d6ae876aea",
+   "captured_at": "2026-10-24T13:03:37.345180+00:00"
+  },
+  {
+   "id": "EV-0143-0009",
+   "seq": 9,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0003",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0003",
+   "content": {
+    "txn_id": "TB0143-0003",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-03T20:07:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 1100000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "9d3154355b2022e08282818b1d46ebbe567d1916c354b6e96eee0b852664ff4c",
+   "prev_hash": "94cd15b5de5c649f6c3123609609a206a7fce659370c30a41f5e01d6ae876aea",
+   "entry_hash": "9913a493ea824a8c08fcce150982a18ec2d78e6e254bcd26428bc2e7a0341a6a",
+   "captured_at": "2026-10-24T13:03:37.345215+00:00"
+  },
+  {
+   "id": "EV-0143-0010",
+   "seq": 10,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0004",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0004",
+   "content": {
+    "txn_id": "TB0143-0004",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-04T21:14:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 990000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "495675d445b0f7c42548e8beae7f5d84344022e86d620f90dd8f54cf4802938c",
+   "prev_hash": "9913a493ea824a8c08fcce150982a18ec2d78e6e254bcd26428bc2e7a0341a6a",
+   "entry_hash": "ce43581f290eb9def55eaf80b7ee725809314c08433c0cf08162a30d0a807013",
+   "captured_at": "2026-10-24T13:03:37.345248+00:00"
+  },
+  {
+   "id": "EV-0143-0011",
+   "seq": 11,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0005",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0005",
+   "content": {
+    "txn_id": "TB0143-0005",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-05T22:21:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 545000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "fdfd94eb77112bffd6c7c8439bb380a7935d65d7ff82a425ce942c0d0bf58cbc",
+   "prev_hash": "ce43581f290eb9def55eaf80b7ee725809314c08433c0cf08162a30d0a807013",
+   "entry_hash": "c341cd36b120a823894ea743c8bd28b5e4907ca35a44f4c3164ecbf2c268dae3",
+   "captured_at": "2026-10-24T13:03:37.345280+00:00"
+  },
+  {
+   "id": "EV-0143-0012",
+   "seq": 12,
+   "type": "transaction",
+   "label": "Ibft debit TB0143-0006",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0006",
+   "content": {
+    "txn_id": "TB0143-0006",
+    "currency": "PKR",
+    "memo": "PAYMENT",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**SHER****1518",
+    "counterparty_bank": "Synthetic Bank A",
+    "booked_at": "2026-06-06T00:30:00+05:00",
+    "direction": "out",
+    "channel": "IBFT",
+    "amount": 4793000,
+    "counterparty_name": "Sheraz Traders"
+   },
+   "content_hash": "81315990d6e76734370d0dfc17590eec5ed2d630619e0e9ef7be45d1276cdc16",
+   "prev_hash": "c341cd36b120a823894ea743c8bd28b5e4907ca35a44f4c3164ecbf2c268dae3",
+   "entry_hash": "6c1f826f52102777982007842a13293d348215ab9e975b49c8d885278b0c99f9",
+   "captured_at": "2026-10-24T13:03:37.345312+00:00"
+  },
+  {
+   "id": "EV-0143-0013",
+   "seq": 13,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0007",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0007",
+   "content": {
+    "txn_id": "TB0143-0007",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-06T23:28:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 155000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "1a4553bad85047114d1ae53c6c72f4b13adbfa91d96c842f266ba8e6ee3f9237",
+   "prev_hash": "6c1f826f52102777982007842a13293d348215ab9e975b49c8d885278b0c99f9",
+   "entry_hash": "5c52f6fdbded7f1a92c3d880958ac693e2412e781bef843d01bf65c243d09bde",
+   "captured_at": "2026-10-24T13:03:37.345347+00:00"
+  },
+  {
+   "id": "EV-0143-0014",
+   "seq": 14,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0008",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0008",
+   "content": {
+    "txn_id": "TB0143-0008",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-08T00:35:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 777000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "5b8d7becfaf99a83239aeed94c4c2fe2bb0107739648acaf976566b4fa345d12",
+   "prev_hash": "5c52f6fdbded7f1a92c3d880958ac693e2412e781bef843d01bf65c243d09bde",
+   "entry_hash": "63ec3aa0b27c2057c1f01438fb396aa00f3e139d6065a77793f268e482774b8d",
+   "captured_at": "2026-10-24T13:03:37.345380+00:00"
+  },
+  {
+   "id": "EV-0143-0015",
+   "seq": 15,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0009",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0009",
+   "content": {
+    "txn_id": "TB0143-0009",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-08T19:42:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 583000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "c30d2b138318b8119c01d57d7103171823c769f5889b5d24081cac74d177644c",
+   "prev_hash": "63ec3aa0b27c2057c1f01438fb396aa00f3e139d6065a77793f268e482774b8d",
+   "entry_hash": "4af7141cb40b78a3dd5a302a7a4b97a372712239b4aa1b4816f7f276245053d1",
+   "captured_at": "2026-10-24T13:03:37.345462+00:00"
+  },
+  {
+   "id": "EV-0143-0016",
+   "seq": 16,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0010",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0010",
+   "content": {
+    "txn_id": "TB0143-0010",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-09T20:49:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 1164000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "4f2558835a733a4ee3c32fbef568be22ac8de9f2ae12950ff36de720f7518936",
+   "prev_hash": "4af7141cb40b78a3dd5a302a7a4b97a372712239b4aa1b4816f7f276245053d1",
+   "entry_hash": "9215bc1ad73cf98317fdd679356887c370593c199ff274ca955269d7d111ba99",
+   "captured_at": "2026-10-24T13:03:37.345495+00:00"
+  },
+  {
+   "id": "EV-0143-0017",
+   "seq": 17,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0011",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0011",
+   "content": {
+    "txn_id": "TB0143-0011",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-10T21:06:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 585000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "502d41ff4c0076e5aeb8e210b8ab9f8dd7e790fa41544c4cdab1a8d8c670e8d9",
+   "prev_hash": "9215bc1ad73cf98317fdd679356887c370593c199ff274ca955269d7d111ba99",
+   "entry_hash": "0d2ed50c7a1e9c210c257a7b9636b25b1bfde88d5d72f610edaf7b5841b6a3dc",
+   "captured_at": "2026-10-24T13:03:37.345527+00:00"
+  },
+  {
+   "id": "EV-0143-0018",
+   "seq": 18,
+   "type": "transaction",
+   "label": "Ibft debit TB0143-0012",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0012",
+   "content": {
+    "txn_id": "TB0143-0012",
+    "currency": "PKR",
+    "memo": "PAYMENT",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**AL-N****1888",
+    "counterparty_bank": "Synthetic Bank B",
+    "booked_at": "2026-06-11T00:30:00+05:00",
+    "direction": "out",
+    "channel": "IBFT",
+    "amount": 2764000,
+    "counterparty_name": "Al-Noor Exchange Company"
+   },
+   "content_hash": "2c4e2ab4d6129bc67c2fa3abf8fb25d81c4aceff7b268af60b3534cb411cf753",
+   "prev_hash": "0d2ed50c7a1e9c210c257a7b9636b25b1bfde88d5d72f610edaf7b5841b6a3dc",
+   "entry_hash": "4ac4e5cf1e18fd7c02d4570634c3f05e319b9ec1bc0bcfb084a2cece43925340",
+   "captured_at": "2026-10-24T13:03:37.345572+00:00"
+  },
+  {
+   "id": "EV-0143-0019",
+   "seq": 19,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0013",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0013",
+   "content": {
+    "txn_id": "TB0143-0013",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-13T22:13:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 952000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "93b12b65521689ded94fcb1ceb335e5b2a7a85ab0c857aff1f4913007d746f63",
+   "prev_hash": "4ac4e5cf1e18fd7c02d4570634c3f05e319b9ec1bc0bcfb084a2cece43925340",
+   "entry_hash": "07e2c62737e100351f273322b7660c1943d041dd3ada45c3d45def523eda572c",
+   "captured_at": "2026-10-24T13:03:37.345606+00:00"
+  },
+  {
+   "id": "EV-0143-0020",
+   "seq": 20,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0014",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0014",
+   "content": {
+    "txn_id": "TB0143-0014",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-14T23:20:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 1879000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "68333ca0644786d1e0253f54f60adc3ec0dbd19ecfa6dbc0a0abccebc63c2a91",
+   "prev_hash": "07e2c62737e100351f273322b7660c1943d041dd3ada45c3d45def523eda572c",
+   "entry_hash": "7f759af36ae72a64323f9e0e2fd0d7ee2f514b0b3daf32f06189009532f86191",
+   "captured_at": "2026-10-24T13:03:37.345653+00:00"
+  },
+  {
+   "id": "EV-0143-0021",
+   "seq": 21,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0015",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0015",
+   "content": {
+    "txn_id": "TB0143-0015",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-18T00:27:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 1119000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "97799efd578738f52a29f295b1133c8d79b82b0cdac3c3604ded63a6d2a52ca0",
+   "prev_hash": "7f759af36ae72a64323f9e0e2fd0d7ee2f514b0b3daf32f06189009532f86191",
+   "entry_hash": "035f03e2716a30bd0698b9a3819c23994b88445784e19244ee43061a7519b874",
+   "captured_at": "2026-10-24T13:03:37.345702+00:00"
+  },
+  {
+   "id": "EV-0143-0022",
+   "seq": 22,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0016",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0016",
+   "content": {
+    "txn_id": "TB0143-0016",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-18T19:34:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 467000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "042a581da4dbba903139ca4e77930a345e589b622b99fea90f2beeba312fad3c",
+   "prev_hash": "035f03e2716a30bd0698b9a3819c23994b88445784e19244ee43061a7519b874",
+   "entry_hash": "6d7bc259213c783b8d575eebc3f191cc031b53f36ad2df3349dadac95a05ec82",
+   "captured_at": "2026-10-24T13:03:37.345738+00:00"
+  },
+  {
+   "id": "EV-0143-0023",
+   "seq": 23,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0017",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0017",
+   "content": {
+    "txn_id": "TB0143-0017",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-19T20:41:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 1831000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "9578fd9535893be0804fa01f1cde43d7a4e7355f8eb10e9f4635937de781124f",
+   "prev_hash": "6d7bc259213c783b8d575eebc3f191cc031b53f36ad2df3349dadac95a05ec82",
+   "entry_hash": "585f9719865c6b565c49475400a42ca4c163ef23bc173882c4a8b0c9a14156ac",
+   "captured_at": "2026-10-24T13:03:37.345789+00:00"
+  },
+  {
+   "id": "EV-0143-0024",
+   "seq": 24,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0018",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0018",
+   "content": {
+    "txn_id": "TB0143-0018",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-21T21:48:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 654000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "1947faba563ade901e8287113efe4759e54eed164c08ce77da4ef810a25203c1",
+   "prev_hash": "585f9719865c6b565c49475400a42ca4c163ef23bc173882c4a8b0c9a14156ac",
+   "entry_hash": "71e9f5b36a99cd500718a66fa491063195ff7768071fffc13daa3a17c54c1e7f",
+   "captured_at": "2026-10-24T13:03:37.345824+00:00"
+  },
+  {
+   "id": "EV-0143-0025",
+   "seq": 25,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0019",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0019",
+   "content": {
+    "txn_id": "TB0143-0019",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-22T22:05:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 259000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "16b4aa1ddc578a5fc6d52df56d376347aa49eb8e7780d741bc1e1b41b2a87255",
+   "prev_hash": "71e9f5b36a99cd500718a66fa491063195ff7768071fffc13daa3a17c54c1e7f",
+   "entry_hash": "4b809978861473520c8c516b59561c83336a334f9ee6fa988e200f53b2dcdd27",
+   "captured_at": "2026-10-24T13:03:37.345856+00:00"
+  },
+  {
+   "id": "EV-0143-0026",
+   "seq": 26,
+   "type": "transaction",
+   "label": "Cash Deposit credit TB0143-0020",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=e767f49fd86b21f6#TB0143-0020",
+   "content": {
+    "txn_id": "TB0143-0020",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "Saddar Branch",
+    "city": "Karachi",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-25T23:12:00+05:00",
+    "direction": "in",
+    "channel": "CASH_DEPOSIT",
+    "amount": 541000,
+    "counterparty_name": "Cash (over the counter)"
+   },
+   "content_hash": "87d8c207f6e94553c44ed18b68d5103a6bc6d52359f977780cb454c0f6cf6acc",
+   "prev_hash": "4b809978861473520c8c516b59561c83336a334f9ee6fa988e200f53b2dcdd27",
+   "entry_hash": "66a8cbafe8b64ae93dffc90a8ea83abd94f3843844c4dcd6a9c34a989ec3210d",
+   "captured_at": "2026-10-24T13:03:37.345888+00:00"
+  },
+  {
+   "id": "EV-0143-0027",
+   "seq": 27,
+   "type": "case_note",
+   "label": "Case note 1 (L2 analyst)",
+   "source": "cms:case-notes",
+   "source_ref": "case/BENCH-0143/note/1",
+   "content": {
+    "author": "L2 analyst",
+    "at": "2026-06-29T20:00:00+05:00",
+    "text": "Account placed under enhanced monitoring pending the reporting decision. No contact made with the customer about this review."
+   },
+   "content_hash": "18b0edcc495f337cea77fb996502a9924614b4c353db76d25d87f7b0e7044ad0",
+   "prev_hash": "66a8cbafe8b64ae93dffc90a8ea83abd94f3843844c4dcd6a9c34a989ec3210d",
+   "entry_hash": "f7a110d827e62edb7700128ae7fdea437dc14801ae303b8cace64d8edaed3393",
+   "captured_at": "2026-10-24T13:03:37.345921+00:00"
+  }
+ ],
+ "A3_A4_trail": [
+  {
+   "seq": 1,
+   "kind": "system",
+   "actor": "bench:intake",
+   "action": "CASE_INGESTED",
+   "draft_id": null,
+   "detail": {
+    "evidence_items": 27,
+    "new_evidence": null,
+    "lakehouse_query": {
+     "tool": "lakehouse.transactions",
+     "entity": "PK**MEZN****6768",
+     "window": [
+      "2026-06-02",
+      "2026-06-25"
+     ]
+    },
+    "query_hash": "e767f49fd86b21f6",
+    "alert_id": "ALRT-B0143"
+   },
+   "content_hash": "fd724c454aea4d0526d9ed4c9827353edc7c06bb275953e08213402c96cfee84",
+   "prev_hash": "7bbee339a390569edb02fee012905ffce5bf91125747842800f06e45b14d7136",
+   "entry_hash": "b74c3e0eacd7497da2939b802c3ef2d5ba06098eab547d063125b9c27fb81676",
+   "at": "2026-10-24T13:03:37.345969+00:00"
+  },
+  {
+   "seq": 2,
+   "kind": "agent_run",
+   "actor": "agent:case_assembler",
+   "action": "AGENT_RUN",
+   "draft_id": "D0143-1-4003",
+   "detail": {
+    "agent": "case_assembler",
+    "tool": "intake@1.0.0",
+    "evidence_items": 27,
+    "evidence_head": "f7a110d827e62edb7700128ae7fdea437dc14801ae303b8cace64d8edaed3393"
+   },
+   "content_hash": "604dddaf08f8609f113cb1cb3277d566fffab9866e767e22ebfa90930a2e71a3",
+   "prev_hash": "b74c3e0eacd7497da2939b802c3ef2d5ba06098eab547d063125b9c27fb81676",
+   "entry_hash": "59916168e4e2f17fed6e11973b23910bf6d9de834d1ce4e7c7c642cd6b7bcd6f",
+   "at": "2026-10-24T13:03:37.365488+00:00"
+  },
+  {
+   "seq": 3,
+   "kind": "agent_run",
+   "actor": "agent:fact_builder",
+   "action": "AGENT_RUN",
+   "draft_id": "D0143-1-4003",
+   "detail": {
+    "agent": "fact_builder",
+    "tool": "facts@1.0.0",
+    "input_hash": "f7a110d827e62edb7700128ae7fdea437dc14801ae303b8cace64d8edaed3393",
+    "output_hash": "1deeae65609d2a8734ce812d29a597a0f641e4558a2e98436cc8a67ab523317c",
+    "facts": 25
+   },
+   "content_hash": "ce823fa18658ff7964cd56e38ca3a633b68e7f95646d81ea0f07af2b860ccc74",
+   "prev_hash": "59916168e4e2f17fed6e11973b23910bf6d9de834d1ce4e7c7c642cd6b7bcd6f",
+   "entry_hash": "6f28721c7b77491be4c7352770c67ccd1775e6b6591ccab6c61e93dcefe47bab",
+   "at": "2026-10-24T13:03:37.384999+00:00"
+  },
+  {
+   "seq": 4,
+   "kind": "agent_run",
+   "actor": "agent:typology_analyst",
+   "action": "AGENT_RUN",
+   "draft_id": "D0143-1-4003",
+   "detail": {
+    "agent": "typology_analyst",
+    "tool": "typology@1.0.0",
+    "input_hash": "1deeae65609d2a8734ce812d29a597a0f641e4558a2e98436cc8a67ab523317c",
+    "output_hash": "9c0ac5d07242d3ae4d4a2ba9ca4a641263fdb956ac6e47daf4e5364ad2355b1a",
+    "hypotheses": [
+     {
+      "id": "H1",
+      "typology": "STRUCTURING",
+      "confidence": 0.35,
+      "supported": false
+     },
+     {
+      "id": "H2",
+      "typology": "MONEY_MULE",
+      "confidence": 0.2,
+      "supported": false
+     },
+     {
+      "id": "H3",
+      "typology": "UNEXPLAINED_VOLUME",
+      "confidence": 0.3,
+      "supported": false
+     }
+    ],
+    "abstain_confidence": 0.6,
+    "evaluated": [
+     {
+      "typology": "STRUCTURING",
+      "catalogue_version": "0.1.0",
+      "support": [
+       {
+        "id": "STR-1",
+        "fired": false
+       },
+       {
+        "id": "STR-2",
+        "fired": false
+       },
+       {
+        "id": "STR-3",
+        "fired": true
+       },
+       {
+        "id": "STR-4",
+        "fired": true
+       },
+       {
+        "id": "STR-5",
+        "fired": false
+       }
+      ],
+      "counter": [
+       {
+        "id": "STR-C1",
+        "fired": false
+       },
+       {
+        "id": "STR-C2",
+        "fired": false
+       },
+       {
+        "id": "STR-C3",
+        "fired": false
+       }
+      ]
+     },
+     {
+      "typology": "MONEY_MULE",
+      "catalogue_version": "0.1.0",
+      "support": [
+       {
+        "id": "MUL-1",
+        "fired": false
+       },
+       {
+        "id": "MUL-2",
+        "fired": false
+       },
+       {
+        "id": "MUL-3",
+        "fired": true
+       },
+       {
+        "id": "MUL-4",
+        "fired": false
+       }
+      ],
+      "counter": [
+       {
+        "id": "MUL-C1",
+        "fired": false
+       },
+       {
+        "id": "MUL-C2",
+        "fired": false
+       }
+      ]
+     },
+     {
+      "typology": "UNEXPLAINED_VOLUME",
+      "catalogue_version": "0.1.0",
+      "support": [
+       {
+        "id": "VOL-1",
+        "fired": true
+       },
+       {
+        "id": "VOL-2",
+        "fired": false
+       }
+      ],
+      "counter": [
+       {
+        "id": "VOL-C1",
+        "fired": false
+       },
+       {
+        "id": "VOL-C2",
+        "fired": false
+       },
+       {
+        "id": "VOL-C3",
+        "fired": false
+       }
+      ]
+     }
+    ]
+   },
+   "content_hash": "8b1e5ec9c86f7abd6302208d567e40d21549ede816c98e03579ee552b9dbd4eb",
+   "prev_hash": "6f28721c7b77491be4c7352770c67ccd1775e6b6591ccab6c61e93dcefe47bab",
+   "entry_hash": "3bd0c3949938f61087797d1be36f3644ab117eb5094af2df684cb312bbab8763",
+   "at": "2026-10-24T13:03:37.406657+00:00"
+  },
+  {
+   "seq": 5,
+   "kind": "agent_run",
+   "actor": "agent:planner",
+   "action": "AGENT_RUN",
+   "draft_id": "D0143-1-4003",
+   "detail": {
+    "agent": "planner",
+    "tool": "planner@1.0.0",
+    "template": "goaml-pk-str@1.0.0",
+    "abstain": true,
+    "slots": 0,
+    "gaps": []
+   },
+   "content_hash": "ff1bfd84a41fb9cc7f995d3043a7c87370aa5e6da0a8e2c35a86d1449d59eea0",
+   "prev_hash": "3bd0c3949938f61087797d1be36f3644ab117eb5094af2df684cb312bbab8763",
+   "entry_hash": "746a12dfcb0a16b52253da15115bbccd0c5c26e34238e3748651b502903a5ad2",
+   "at": "2026-10-24T13:03:37.429434+00:00"
+  },
+  {
+   "seq": 6,
+   "kind": "system",
+   "actor": "orchestrator",
+   "action": "DRAFT_ABSTAINED",
+   "draft_id": "D0143-1-4003",
+   "detail": {
+    "decision": "INSUFFICIENT_GROUNDS",
+    "best": {
+     "id": "H1",
+     "name": "Structuring (avoiding the cash reporting threshold)",
+     "confidence": 0.35
+    },
+    "evidence_head": "f7a110d827e62edb7700128ae7fdea437dc14801ae303b8cace64d8edaed3393"
+   },
+   "content_hash": "7e271ca736cc57e24a03528b26e15c9ef243c16b6ace96649d9ede3a51ea1993",
+   "prev_hash": "746a12dfcb0a16b52253da15115bbccd0c5c26e34238e3748651b502903a5ad2",
+   "entry_hash": "ab0eb7bce0a8cca249b8c3beb0761dedd4b518c338bd17b2fa1ce8a7001ec841",
+   "at": "2026-10-24T13:03:37.449272+00:00"
+  },
+  {
+   "seq": 7,
+   "kind": "decision",
+   "actor": "analyst@bench.example",
+   "action": "SAR_DECISION_RECORDED",
+   "draft_id": null,
+   "detail": {
+    "decision_id": "DEC-93009922",
+    "sar_required": false,
+    "reason": "No report: the system found insufficient grounds and the analyst agrees after reviewing the counter-evidence.",
+    "suspicion_formed_at": "2026-10-24T11:03:37.459236+00:00",
+    "deadline_at": "2026-10-31T11:03:37.459236+00:00",
+    "deadline_rule": {
+     "days": 7,
+     "basis": "suspicion_formed_at",
+     "note": "Configured as 7 calendar days from forming suspicion. VERIFY against AML Act 2010 s.7 and current FMU guidance before production use."
+    }
+   },
+   "content_hash": "63976e778545c404f7d698745a5135958895469557896cd0424ad2dea253e8e1",
+   "prev_hash": "ab0eb7bce0a8cca249b8c3beb0761dedd4b518c338bd17b2fa1ce8a7001ec841",
+   "entry_hash": "78367eabe9625b7e67bf4f1481c318e067cfbaf1943789bf33a004bd5ee4abea",
+   "at": "2026-10-24T13:03:37.459803+00:00"
+  },
+  {
+   "seq": 8,
+   "kind": "audit",
+   "actor": "auditor@bench.example",
+   "action": "INTEGRITY_VERIFIED",
+   "draft_id": "D0143-1-4003",
+   "detail": {
+    "verdict": "PASS",
+    "problems": [],
+    "evidence_head": "f7a110d827e62edb7700128ae7fdea437dc14801ae303b8cace64d8edaed3393",
+    "draft_id": "D0143-1-4003"
+   },
+   "content_hash": "b8dc96eb7d48f0cf4a46f1a18a2f76c0a914a156eb7fffc41901368f436ef87a",
+   "prev_hash": "78367eabe9625b7e67bf4f1481c318e067cfbaf1943789bf33a004bd5ee4abea",
+   "entry_hash": "96b4807a2d5b6d751906c03fcbeac8cbc6f11e8a1f12520ba9f5f18477032028",
+   "at": "2026-10-24T13:03:37.473723+00:00"
+  }
+ ],
+ "filings": [],
+ "A6_A7_integrity": {
+  "case_id": "BENCH-0143",
+  "checked_at": "2026-10-24T13:03:37.472042+00:00",
+  "checked_by": "auditor@bench.example",
+  "evidence_chain": {
+   "intact": true,
+   "entries": 27,
+   "first_break": null,
+   "problems": [],
+   "head": "f7a110d827e62edb7700128ae7fdea437dc14801ae303b8cace64d8edaed3393"
+  },
+  "trail_chain": {
+   "intact": true,
+   "entries": 7,
+   "first_break": null,
+   "problems": [],
+   "head": "78367eabe9625b7e67bf4f1481c318e067cfbaf1943789bf33a004bd5ee4abea"
+  },
+  "chain_integrity": "intact",
+  "trail_integrity": "intact",
+  "injection_flags": [],
+  "draft": {
+   "draft_id": "D0143-1-4003",
+   "version": 1,
+   "status": "ABSTAINED",
+   "sentences_total": 0,
+   "sentences_fully_cited": 0,
+   "citations_resolved": 0,
+   "citations_unresolved": 0,
+   "auditability_score": null,
+   "lineage_impact": {
+    "facts": [],
+    "hypotheses": [],
+    "sentences": []
+   },
+   "facts_not_reproducible": [],
+   "fact_hash_mismatches": [],
+   "verdict_replay_differences": [],
+   "anchor": {
+    "evidence_head_at_draft": "f7a110d827e62edb7700128ae7fdea437dc14801ae303b8cace64d8edaed3393",
+    "still_in_chain": true
+   },
+   "content_hash": {
+    "stored": null,
+    "recomputed": "c33a6f396113608b78a6b3e31715d7b0d369cb0975aaa612ff79ea3501aedf2e",
+    "attested": null,
+    "matches_stored": null,
+    "matches_attested": null
+   }
+  },
+  "verdict": "PASS",
+  "problems": []
+ },
+ "actors": {
+  "analyst@bench.example": {
+   "name": "Analyst A",
+   "role": "analyst"
+  },
+  "mlro@bench.example": {
+   "name": "MLRO B",
+   "role": "mlro"
+  },
+  "auditor@bench.example": {
+   "name": "Auditor C",
+   "role": "auditor"
+  }
+ },
+ "release": {
+  "name": "auditable-str-drafting",
+  "version": "1.1.0",
+  "components": {
+   "verifier": "verifier-1.0.0",
+   "fact_builder": "facts@1.0.0",
+   "typology_catalogue": "0.1.0",
+   "drafter_prompt": "drafter-v1",
+   "template": "goaml-pk-str@1.0.0",
+   "audit_pack": "1.1"
+  },
+  "benchmark": {
+   "name": "SAR-Bench-lite",
+   "path": "eval/results/paper_numbers.json",
+   "sha256": "6cc4a59db3c9feac7d8691955ed3de68c0e0965c9e0545acc4366fa4f49975f6"
+  }
+ },
+ "pack_hash": "dc6c29c5d1257da292630396205b42d561f76885bc33656284871c67fbeb4630"
+}

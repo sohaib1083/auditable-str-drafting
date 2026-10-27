@@ -1,0 +1,354 @@
+{
+ "pack_version": "1.0",
+ "generated_at": "2026-10-24T12:49:54.975482+00:00",
+ "case": {
+  "id": "BENCH-0132",
+  "ref": "SB-0132",
+  "title": "Neg Salaried case 132",
+  "jurisdiction": "GOAML:PK",
+  "status": "NO_SAR",
+  "detected_at": "2026-03-25T20:00:00+05:00",
+  "opened_at": "2026-03-26T20:00:00+05:00"
+ },
+ "A5_decision": {
+  "id": "DEC-d3364175",
+  "case_id": "BENCH-0132",
+  "sar_required": 0,
+  "reason": "No report: the system found insufficient grounds and the analyst agrees after reviewing the counter-evidence.",
+  "suspicion_formed_at": "2026-10-24T10:49:54.938857+00:00",
+  "deadline_at": "2026-10-31T10:49:54.938857+00:00",
+  "decided_by": "Analyst A (analyst)",
+  "decided_at": "2026-10-24T12:49:54.940941+00:00"
+ },
+ "draft": {
+  "id": "D0132-1-8079",
+  "version": 1,
+  "status": "ABSTAINED",
+  "template": "goaml-pk-str@1.0.0",
+  "provider": "offline",
+  "endpoint": {
+   "id": "offline",
+   "provider": "offline",
+   "model": "template-drafter@1.0.0",
+   "location": "in-process",
+   "in_boundary": true,
+   "pseudonymise": false,
+   "approval_ref": "n/a",
+   "description": "Deterministic template drafter. No model, no network. Air-gapped profile."
+  },
+  "content_hash": null,
+  "evidence_head_at_generation": "30500cd4758a5fb0d5a5e3ad5a2bc5fc5db7d8bb8b0608bb9b445c95cc1c9f27",
+  "maker": null,
+  "checker": null,
+  "attestation": null,
+  "submitted_at": null,
+  "approved_at": null,
+  "stats": {
+   "sentences": 0,
+   "abstained": true,
+   "injection_flags": []
+  }
+ },
+ "A1_claims": [],
+ "removed_by_verifier": [],
+ "facts": [],
+ "A8_hypotheses": [
+  {
+   "id": "H1",
+   "typology_id": "STRUCTURING",
+   "name": "Structuring (avoiding the cash reporting threshold)",
+   "short": "structuring",
+   "confidence": 0.0,
+   "supported": false,
+   "support": [],
+   "counter": [],
+   "support_fact_ids": [],
+   "counter_fact_ids": [],
+   "tazama_match": false,
+   "catalogue_version": "0.1.0",
+   "display": "Structuring (avoiding the cash reporting threshold) — confidence 0.00; indicators: none",
+   "hash": "a5b3de33ca807c7d1f74f0f856792c8e7944ad0db007016474f6f00f1655814f"
+  },
+  {
+   "id": "H2",
+   "typology_id": "MONEY_MULE",
+   "name": "Money mule / rapid pass-through account",
+   "short": "money mule activity",
+   "confidence": 0.0,
+   "supported": false,
+   "support": [],
+   "counter": [],
+   "support_fact_ids": [],
+   "counter_fact_ids": [],
+   "tazama_match": false,
+   "catalogue_version": "0.1.0",
+   "display": "Money mule / rapid pass-through account — confidence 0.00; indicators: none",
+   "hash": "e46388aea1489e7d92f7e84a87f73c09c81f21ffd92252388ee3f429307fc5a9"
+  },
+  {
+   "id": "H3",
+   "typology_id": "UNEXPLAINED_VOLUME",
+   "name": "Cash volume spike without clear pattern",
+   "short": "an unexplained increase in cash activity",
+   "confidence": 0.25,
+   "supported": false,
+   "support": [
+    {
+     "id": "VOL-2",
+     "text": "Tazama velocity rule fired against the 90-day baseline",
+     "weight": 0.2,
+     "fact_ids": [
+      "F07"
+     ]
+    }
+   ],
+   "counter": [],
+   "support_fact_ids": [
+    "F07"
+   ],
+   "counter_fact_ids": [],
+   "tazama_match": true,
+   "catalogue_version": "0.1.0",
+   "display": "Cash volume spike without clear pattern — confidence 0.25; indicators: VOL-2",
+   "hash": "f296320f1ce018f524ef5970fa36e8af664a675dbc67edcd287d37da27568adb"
+  }
+ ],
+ "evidence": [],
+ "A3_A4_trail": [
+  {
+   "seq": 1,
+   "kind": "system",
+   "actor": "bench:intake",
+   "action": "CASE_INGESTED",
+   "draft_id": null,
+   "detail": {
+    "evidence_items": 14,
+    "new_evidence": null,
+    "lakehouse_query": {
+     "tool": "lakehouse.transactions",
+     "entity": "PK**BAHL****1780",
+     "window": [
+      "2026-03-03",
+      "2026-03-25"
+     ]
+    },
+    "query_hash": "c10c826fac0674a5",
+    "alert_id": "ALRT-B0132"
+   },
+   "content_hash": "ffdba7e7d5e8571330c917a4454d53713965ed0ff1d7b4c42a84a8c63f14248b",
+   "prev_hash": "ab82223b38fb2a9d2f3cf28cf9c377711209b42b297c149eca2dfeeb877c944b",
+   "entry_hash": "15af76d76c53be507679fe6c8dde55ad59226eea23364a9a35dff6156f636397",
+   "at": "2026-10-24T12:49:54.781433+00:00"
+  },
+  {
+   "seq": 2,
+   "kind": "agent_run",
+   "actor": "agent:case_assembler",
+   "action": "AGENT_RUN",
+   "draft_id": "D0132-1-8079",
+   "detail": {
+    "agent": "case_assembler",
+    "tool": "intake@1.0.0",
+    "evidence_items": 14,
+    "evidence_head": "30500cd4758a5fb0d5a5e3ad5a2bc5fc5db7d8bb8b0608bb9b445c95cc1c9f27"
+   },
+   "content_hash": "de2e63889b8a0c89df2917eba6196c7905832dfdd4e12ef3bc12d8d7dbaf059a",
+   "prev_hash": "15af76d76c53be507679fe6c8dde55ad59226eea23364a9a35dff6156f636397",
+   "entry_hash": "6a54de306fb73e04af7f7d5bb98f6218d65862a8c0cc9b58c6ef2124532bee6c",
+   "at": "2026-10-24T12:49:54.808232+00:00"
+  },
+  {
+   "seq": 3,
+   "kind": "agent_run",
+   "actor": "agent:fact_builder",
+   "action": "AGENT_RUN",
+   "draft_id": "D0132-1-8079",
+   "detail": {
+    "agent": "fact_builder",
+    "tool": "facts@1.0.0",
+    "input_hash": "30500cd4758a5fb0d5a5e3ad5a2bc5fc5db7d8bb8b0608bb9b445c95cc1c9f27",
+    "output_hash": "93addefcdd455f9dff0c211ca526d094d5d89a1b9e5e63511c103746a5013432",
+    "facts": 22
+   },
+   "content_hash": "8ddacd94829916acfd3322800b612e23b5eba1c1ac78a259f925ea840b5264ad",
+   "prev_hash": "6a54de306fb73e04af7f7d5bb98f6218d65862a8c0cc9b58c6ef2124532bee6c",
+   "entry_hash": "41c8afe6a307cb64e0cdd66c21b7bbcf7d3402735cfea0f4043953133fab7ad1",
+   "at": "2026-10-24T12:49:54.837468+00:00"
+  },
+  {
+   "seq": 4,
+   "kind": "agent_run",
+   "actor": "agent:typology_analyst",
+   "action": "AGENT_RUN",
+   "draft_id": "D0132-1-8079",
+   "detail": {
+    "agent": "typology_analyst",
+    "tool": "typology@1.0.0",
+    "input_hash": "93addefcdd455f9dff0c211ca526d094d5d89a1b9e5e63511c103746a5013432",
+    "output_hash": "deee0bba340a6871a946bba2815fd68c4b9c428f45b4fcc76db0be7ab0209465",
+    "hypotheses": [
+     {
+      "id": "H1",
+      "typology": "STRUCTURING",
+      "confidence": 0.0,
+      "supported": false
+     },
+     {
+      "id": "H2",
+      "typology": "MONEY_MULE",
+      "confidence": 0.0,
+      "supported": false
+     },
+     {
+      "id": "H3",
+      "typology": "UNEXPLAINED_VOLUME",
+      "confidence": 0.25,
+      "supported": false
+     }
+    ]
+   },
+   "content_hash": "846e5ebc7620b085e553a751f17a3e4dec82d7e9f9403b8212f33f73ca4a3192",
+   "prev_hash": "41c8afe6a307cb64e0cdd66c21b7bbcf7d3402735cfea0f4043953133fab7ad1",
+   "entry_hash": "5210b34568f5e2f7fdf98a76daf3563f6535cb0e6e67801b31391360dd90560a",
+   "at": "2026-10-24T12:49:54.865521+00:00"
+  },
+  {
+   "seq": 5,
+   "kind": "agent_run",
+   "actor": "agent:planner",
+   "action": "AGENT_RUN",
+   "draft_id": "D0132-1-8079",
+   "detail": {
+    "agent": "planner",
+    "tool": "planner@1.0.0",
+    "template": "goaml-pk-str@1.0.0",
+    "abstain": true,
+    "slots": 0,
+    "gaps": []
+   },
+   "content_hash": "dc9babd32a253cfb0218d53a24a7d49d0d4fa16b6f696440c2f5dd170ee61659",
+   "prev_hash": "5210b34568f5e2f7fdf98a76daf3563f6535cb0e6e67801b31391360dd90560a",
+   "entry_hash": "46905839de7114b2e2a743d1ed5325407e14c0ce4b76154da93b406f48b30596",
+   "at": "2026-10-24T12:49:54.894625+00:00"
+  },
+  {
+   "seq": 6,
+   "kind": "system",
+   "actor": "orchestrator",
+   "action": "DRAFT_ABSTAINED",
+   "draft_id": "D0132-1-8079",
+   "detail": {
+    "decision": "INSUFFICIENT_GROUNDS",
+    "best": {
+     "id": "H3",
+     "name": "Cash volume spike without clear pattern",
+     "confidence": 0.25
+    },
+    "evidence_head": "30500cd4758a5fb0d5a5e3ad5a2bc5fc5db7d8bb8b0608bb9b445c95cc1c9f27"
+   },
+   "content_hash": "8f803ff8891418e68443f449f70331d0a5c4d2164ac28615833e2a546dcc72cd",
+   "prev_hash": "46905839de7114b2e2a743d1ed5325407e14c0ce4b76154da93b406f48b30596",
+   "entry_hash": "b0bcf775ca320b9d61cdd3e5f1518cdd319564a421321c890a2df24c0c8d3c6e",
+   "at": "2026-10-24T12:49:54.922957+00:00"
+  },
+  {
+   "seq": 7,
+   "kind": "decision",
+   "actor": "analyst@bench.example",
+   "action": "SAR_DECISION_RECORDED",
+   "draft_id": null,
+   "detail": {
+    "decision_id": "DEC-d3364175",
+    "sar_required": false,
+    "reason": "No report: the system found insufficient grounds and the analyst agrees after reviewing the counter-evidence.",
+    "suspicion_formed_at": "2026-10-24T10:49:54.938857+00:00",
+    "deadline_at": "2026-10-31T10:49:54.938857+00:00",
+    "deadline_rule": {
+     "days": 7,
+     "basis": "suspicion_formed_at",
+     "note": "Configured as 7 calendar days from forming suspicion. VERIFY against AML Act 2010 s.7 and current FMU guidance before production use."
+    }
+   },
+   "content_hash": "201a48251e2fdc4185f8c5256c114ee8a97a3476a5bdee58856af3c7e842ecd7",
+   "prev_hash": "b0bcf775ca320b9d61cdd3e5f1518cdd319564a421321c890a2df24c0c8d3c6e",
+   "entry_hash": "4b4d545ba41c34ffd73dabf271c4c9bc8273b098b06845f602143f01b392ee87",
+   "at": "2026-10-24T12:49:54.941359+00:00"
+  },
+  {
+   "seq": 8,
+   "kind": "audit",
+   "actor": "auditor@bench.example",
+   "action": "INTEGRITY_VERIFIED",
+   "draft_id": "D0132-1-8079",
+   "detail": {
+    "verdict": "FAIL",
+    "problems": [
+     "Draft sentences changed outside the review workflow"
+    ],
+    "evidence_head": "30500cd4758a5fb0d5a5e3ad5a2bc5fc5db7d8bb8b0608bb9b445c95cc1c9f27",
+    "draft_id": "D0132-1-8079"
+   },
+   "content_hash": "0d5afe2f70c39ea8c6ed24c7c0262769352321f3175bbdb711809349a858a63f",
+   "prev_hash": "4b4d545ba41c34ffd73dabf271c4c9bc8273b098b06845f602143f01b392ee87",
+   "entry_hash": "a92d9dba7508085fa96b1e7610b6ef40909337e57222195906fffa9dae249aa4",
+   "at": "2026-10-24T12:49:54.964515+00:00"
+  }
+ ],
+ "filings": [],
+ "A6_A7_integrity": {
+  "case_id": "BENCH-0132",
+  "checked_at": "2026-10-24T12:49:54.963276+00:00",
+  "checked_by": "auditor@bench.example",
+  "evidence_chain": {
+   "intact": true,
+   "entries": 14,
+   "first_break": null,
+   "problems": [],
+   "head": "30500cd4758a5fb0d5a5e3ad5a2bc5fc5db7d8bb8b0608bb9b445c95cc1c9f27"
+  },
+  "trail_chain": {
+   "intact": true,
+   "entries": 7,
+   "first_break": null,
+   "problems": [],
+   "head": "4b4d545ba41c34ffd73dabf271c4c9bc8273b098b06845f602143f01b392ee87"
+  },
+  "chain_integrity": "intact",
+  "trail_integrity": "intact",
+  "injection_flags": [],
+  "draft": {
+   "draft_id": "D0132-1-8079",
+   "version": 1,
+   "status": "ABSTAINED",
+   "sentences_total": 0,
+   "sentences_fully_cited": 0,
+   "citations_resolved": 0,
+   "citations_unresolved": 0,
+   "auditability_score": null,
+   "lineage_impact": {
+    "facts": [],
+    "hypotheses": [],
+    "sentences": []
+   },
+   "facts_not_reproducible": [],
+   "fact_hash_mismatches": [],
+   "verdict_replay_differences": [],
+   "anchor": {
+    "evidence_head_at_draft": "30500cd4758a5fb0d5a5e3ad5a2bc5fc5db7d8bb8b0608bb9b445c95cc1c9f27",
+    "still_in_chain": true
+   },
+   "content_hash": {
+    "stored": null,
+    "recomputed": "df6b4f2c24af92f550ecd9c96c5a6e3e4bd4823a9a2835bee9d061e1de6ddf39",
+    "attested": null,
+    "matches_stored": false,
+    "matches_attested": null
+   }
+  },
+  "verdict": "FAIL",
+  "problems": [
+   "Draft sentences changed outside the review workflow"
+  ]
+ },
+ "pack_hash": "c839f87f9eb7fa03788600e47a679853e3e6a8b654c3ad916f782597c8409fe6"
+}

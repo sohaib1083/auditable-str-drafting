@@ -191,6 +191,7 @@ class LLMDrafter:
         self.hyps = hyps
         self.meta: dict[str, Any] = {"tokens_in": 0, "tokens_out": 0, "latency_ms": 0, "calls": 0}
         self.last_prompt_hash = ""
+        self.call_log: list[dict[str, Any]] = []  # one record per model call, for the trail (A3)
 
     def _mask(self, s: str) -> str:
         return self.pii.mask(s) if self.pii else s
@@ -201,24 +202,31 @@ class LLMDrafter:
                   "supported": h["supported"], "short_name": h["short"]} for h in self.hyps]
         return json.dumps(rows, indent=1, ensure_ascii=False)
 
-    def _call(self, user: str) -> list[dict[str, Any]]:
+    def _call(self, user: str, purpose: str) -> list[dict[str, Any]]:
         self.last_prompt_hash = chain.sha256(SYSTEM_PROMPT + user)
         data, meta = gateway.complete_json(self.provider, SYSTEM_PROMPT, user)
+        self.call_log.append({"purpose": purpose, "prompt_hash": self.last_prompt_hash, "request_hash": meta.get("request_hash"),
+                              "params": meta.get("params"), "served_by": meta.get("served_by"),
+                              "tokens_in": meta.get("tokens_in"), "tokens_out": meta.get("tokens_out")})
         for k in ("tokens_in", "tokens_out", "latency_ms"):
             self.meta[k] += meta.get(k) or 0
         self.meta["calls"] += 1
         self.meta["served_by"] = meta.get("served_by")
         out = []
         for s in data.get("sentences", []):
+            if not isinstance(s, dict) or not isinstance(s.get("text"), str):
+                # A malformed item becomes an empty, uncited sentence: the verifier fails it and the repair loop
+                # or removal handles it with a recorded reason, instead of the whole draft stopping with an error.
+                s = {"slot": s.get("slot", "") if isinstance(s, dict) else "", "text": "", "cites": []}
             text = self.pii.unmask(s["text"]) if self.pii else s["text"]
-            out.append({"slot": s.get("slot", ""), "text": text.strip(), "cites": [c.strip() for c in s.get("cites", [])]})
+            out.append({"slot": s.get("slot", ""), "text": text.strip(), "cites": [str(c).strip() for c in s.get("cites") or []]})
         return out
 
     def draft(self, outline: dict[str, Any]) -> list[dict[str, Any]]:
         slots = [{"slot": s["slot"], "section": s["section"], "intent": s["intent"], "allowed": s["allowed"]} for s in outline["slots"]]
         user = (f"<case_data>\n{self._case_data()}\n</case_data>\n\n"
                 f"OUTLINE (one sentence per slot, in this order):\n{json.dumps(slots, indent=1)}")
-        return self._call(user)
+        return self._call(user, "draft")
 
     def repair(self, outline: dict[str, Any], failures: list[dict[str, Any]]) -> list[dict[str, Any]]:
         by_slot = {s["slot"]: s for s in outline["slots"]}
@@ -230,7 +238,7 @@ class LLMDrafter:
         user = (f"<case_data>\n{self._case_data()}\n</case_data>\n\n"
                 "These sentences failed verification. Rewrite each one so it fixes every listed problem, "
                 f"using only its allowed citations:\n{json.dumps(items, indent=1, ensure_ascii=False)}")
-        return self._call(user)
+        return self._call(user, "repair")
 
     def run_meta(self) -> dict[str, Any]:
         return self.meta

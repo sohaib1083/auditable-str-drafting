@@ -47,11 +47,27 @@ def eval_rule(expr: str, metrics: dict[str, Any]) -> bool:
     return bool(ev(ast.parse(expr, mode="eval")))
 
 
+def _metrics(ft: FactTable, typ: dict[str, Any]) -> dict[str, Any]:
+    return {**ft.metrics, "tazama_match": ft.metrics.get("tazama_typology") in typ["tazama_typologies"]}
+
+
+def evaluation_record(ft: FactTable) -> list[dict[str, Any]]:
+    """Every indicator and counter-indicator checked for every typology, fired or not (A8).
+
+    A hypothesis lists only the indicators that fired, so on its own it cannot show that
+    a counter-indicator was checked and found absent. This record, written to the trail, can."""
+    cat = load_catalogue()
+    return [{"typology": typ["id"], "catalogue_version": cat["version"],
+             "support": [{"id": i["id"], "fired": eval_rule(i["rule"], _metrics(ft, typ))} for i in typ["indicators"]],
+             "counter": [{"id": i["id"], "fired": eval_rule(i["rule"], _metrics(ft, typ))} for i in typ["counter_indicators"]]}
+            for typ in cat["typologies"]]
+
+
 def analyse(ft: FactTable, abstain_confidence: float) -> list[dict[str, Any]]:
     cat = load_catalogue()
     out: list[dict[str, Any]] = []
     for n, typ in enumerate(cat["typologies"], 1):
-        metrics = {**ft.metrics, "tazama_match": ft.metrics.get("tazama_typology") in typ["tazama_typologies"]}
+        metrics = _metrics(ft, typ)
 
         def resolve(keys: list[str]) -> list[str]:
             return [fid for k in keys for fid in ft.by_key.get(k, [])]

@@ -78,6 +78,11 @@ def _users(conn: Any) -> dict[str, str]:
     return {r["id"]: f"{r['name']} ({r['role']})" for r in conn.execute("SELECT id, name, role FROM users").fetchall()}
 
 
+def _actors(conn: Any) -> dict[str, dict[str, str]]:
+    """Trail actors are recorded by email; the pack maps them to names and roles (A4, A5)."""
+    return {r["email"]: {"name": r["name"], "role": r["role"]} for r in conn.execute("SELECT email, name, role FROM users").fetchall()}
+
+
 # ── Cases ────────────────────────────────────────────────────────────────────
 
 @app.get("/api/cases")
@@ -339,9 +344,10 @@ def _audit_pack(draft_id: str, user: dict, fmt: str) -> dict[str, Any]:
         dec = review.latest_decision(conn, d["case_id"])
         filings = db.rows(conn.execute("SELECT * FROM filings WHERE draft_id=?", (draft_id,)).fetchall())
         users = _users(conn)
+        actors = _actors(conn)
     finally:
         conn.close()
-    pack = audit_pack.build_json(case, d, sentences, evidence, trail_rows, dec, filings, integrity, users)
+    pack = audit_pack.build_json(case, d, sentences, evidence, trail_rows, dec, filings, integrity, users, actors)
     with db.session() as conn:
         append_trail(conn, d["case_id"], "audit", user["email"], "AUDIT_PACK_EXPORTED",
                      {"format": fmt, "pack_hash": pack["pack_hash"]}, draft_id)

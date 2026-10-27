@@ -24,7 +24,7 @@ from app.pipeline import drafter as drafter_mod
 from app.pipeline import gateway
 from app.pipeline.facts import build_facts
 from app.pipeline.planner import plan
-from app.pipeline.typology import analyse
+from app.pipeline.typology import analyse, evaluation_record
 from app.templates import load_template
 from app.verification import VERIFIER_VERSION, completeness, verify_sentences
 from app.verification.claims import scan_evidence_for_injection
@@ -97,7 +97,8 @@ def _run_inner(draft_id: str) -> None:
     with db.session() as conn:
         _run(conn, case_id, draft_id, "typology_analyst", {
             "tool": "typology@1.0.0", "input_hash": facts_hash, "output_hash": chain.content_hash([h["hash"] for h in hyps]),
-            "hypotheses": [{"id": h["id"], "typology": h["typology_id"], "confidence": h["confidence"], "supported": h["supported"]} for h in hyps]})
+            "hypotheses": [{"id": h["id"], "typology": h["typology_id"], "confidence": h["confidence"], "supported": h["supported"]} for h in hyps],
+            "abstain_confidence": settings.abstain_confidence, "evaluated": evaluation_record(ft)})
     _progress(draft_id, "TYPOLOGY", 40)
 
     # 4. Planner (may abstain)
@@ -139,7 +140,8 @@ def _run_inner(draft_id: str) -> None:
             "pii_entities_masked": getattr(getattr(dr, "pii", None), "count", 0),
             "prompt_template": drafter_mod.PROMPT_VERSION, "prompt_hash": getattr(dr, "last_prompt_hash", "") or None,
             "input_hash": facts_hash, "output_hash": chain.content_hash(sents), "sentences": len(sents),
-            "faults_injected": [s["fault"] for s in sents if s.get("fault")], **dr.run_meta()})
+            "faults_injected": [s["fault"] for s in sents if s.get("fault")], **dr.run_meta(),
+            "model_calls": list(getattr(dr, "call_log", []))})
     _progress(draft_id, "DRAFT", 65)
 
     # 6. Verification + repair loop
@@ -153,6 +155,7 @@ def _run_inner(draft_id: str) -> None:
         if not failing:
             break
         loop += 1
+        calls_before = len(getattr(dr, "call_log", []))
         fixed = {f["slot"]: f for f in dr.repair(outline, failing)}
         for it in items:
             if it.get("slot") in fixed and any(f["slot"] == it["slot"] and f["text"] == it["text"] for f in failing):
@@ -165,7 +168,8 @@ def _run_inner(draft_id: str) -> None:
         with db.session() as conn:
             _run(conn, case_id, draft_id, "verifier", {"verifier": VERIFIER_VERSION, "loop": loop,
                                                        "failed_before": len(failing),
-                                                       "failed_after": sum(v["status"] == "failed" for v in verdicts)})
+                                                       "failed_after": sum(v["status"] == "failed" for v in verdicts),
+                                                       "repair_calls": getattr(dr, "call_log", [])[calls_before:]})
     _progress(draft_id, "VERIFY", 80)
 
     # 7. Assemble: failed sentences are removed, never shown as part of the narrative

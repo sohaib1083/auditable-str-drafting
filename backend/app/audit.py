@@ -99,6 +99,7 @@ def verify_case(case_id: str, draft_id: str | None, actor: str, record: bool = T
                     replay.append({"sentence_id": s["id"], "stored": s["verdict"]["status"], "replayed": v["status"]})
 
         recomputed_hash = content_hash_of(sentences, chain.content_hash([f["hash"] for f in facts]))
+        has_narrative = d["content_hash"] is not None or bool(active)  # a declined draft has no narrative to hash
         approved_entry = next((t for t in reversed(trail) if t["draft_id"] == d["id"] and t["action"] == "APPROVED_AND_ATTESTED"), None)
         attested = approved_entry["detail"]["draft_content_hash"] if approved_entry else None
 
@@ -117,7 +118,8 @@ def verify_case(case_id: str, draft_id: str | None, actor: str, record: bool = T
             "fact_hash_mismatches": verify_fact_hashes(facts), "verdict_replay_differences": replay,
             "anchor": {"evidence_head_at_draft": anchored, "still_in_chain": anchor_ok},
             "content_hash": {"stored": d["content_hash"], "recomputed": recomputed_hash,
-                             "attested": attested, "matches_stored": recomputed_hash == d["content_hash"],
+                             "attested": attested,
+                             "matches_stored": (recomputed_hash == d["content_hash"]) if has_narrative else None,
                              "matches_attested": (attested == recomputed_hash) if attested else None},
         }
 
@@ -132,7 +134,7 @@ def verify_case(case_id: str, draft_id: str | None, actor: str, record: bool = T
             problems.append("Evidence chain was rewritten after this draft was generated")
         if dr["facts_not_reproducible"]:
             problems.append(f"{len(dr['facts_not_reproducible'])} fact(s) no longer reproduce from the evidence")
-        if not dr["content_hash"]["matches_stored"]:
+        if dr["content_hash"]["matches_stored"] is False:
             problems.append("Draft sentences changed outside the review workflow")
         if dr["content_hash"]["matches_attested"] is False:
             problems.append("Draft no longer matches what the MLRO attested")

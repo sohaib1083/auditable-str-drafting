@@ -14,6 +14,7 @@ from typing import Any
 
 import httpx
 
+from app import chain
 from app.config import settings
 
 
@@ -123,19 +124,21 @@ def complete_json(provider: str, system: str, user: str) -> tuple[dict[str, Any]
         if resp.stop_reason == "max_tokens":
             raise ModelError("Model output was truncated (max_tokens)")
         text = next((b.text for b in resp.content if b.type == "text"), "")
-        meta = {"tokens_in": resp.usage.input_tokens, "tokens_out": resp.usage.output_tokens, "served_by": resp.model}
+        meta = {"tokens_in": resp.usage.input_tokens, "tokens_out": resp.usage.output_tokens, "served_by": resp.model,
+                **_request_record({"model": settings.anthropic_model, "max_tokens": 16000, "system": system,
+                                   "messages": [{"role": "user", "content": user}], "output_format": "json_schema"})}
     elif provider == "ollama":
+        req = {"model": settings.ollama_model, "stream": False, "format": SENTENCES_SCHEMA, "options": {"temperature": 0},
+               "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
         try:
-            r = httpx.post(f"{settings.ollama_url}/api/chat", timeout=600, json={
-                "model": settings.ollama_model, "stream": False, "format": SENTENCES_SCHEMA,
-                "options": {"temperature": 0},
-                "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]})
+            r = httpx.post(f"{settings.ollama_url}/api/chat", timeout=600, json=req)
             r.raise_for_status()
         except httpx.HTTPError as e:
             raise ModelError(f"Ollama call failed: {e}") from e
         body = r.json()
         text = body["message"]["content"]
-        meta = {"tokens_in": body.get("prompt_eval_count"), "tokens_out": body.get("eval_count"), "served_by": settings.ollama_model}
+        meta = {"tokens_in": body.get("prompt_eval_count"), "tokens_out": body.get("eval_count"), "served_by": settings.ollama_model,
+                **_request_record(req)}
     elif provider == "groq":
         text, meta = _groq(system, user)
     else:
@@ -152,6 +155,11 @@ def complete_json(provider: str, system: str, user: str) -> tuple[dict[str, Any]
 
 SENTENCES_HINT = ('\nReturn a JSON object of the form {"sentences": [{"slot": "<slot id>", "text": "<one sentence>", '
                   '"cites": ["<fact or hypothesis id>", ...]}, ...]}.')
+
+
+def _request_record(body: dict[str, Any]) -> dict[str, Any]:
+    """What an auditor needs to identify a model call (A3): the hash of the exact request sent, and its parameters."""
+    return {"request_hash": chain.content_hash(body), "params": {k: v for k, v in body.items() if k not in ("messages", "system")}}
 
 
 def _groq(system: str, user: str) -> tuple[str, dict[str, Any]]:
@@ -194,5 +202,5 @@ def _groq(system: str, user: str) -> tuple[str, dict[str, Any]]:
         d = r.json()
         u = d.get("usage", {})
         return d["choices"][0]["message"]["content"], {"tokens_in": u.get("prompt_tokens"), "tokens_out": u.get("completion_tokens"),
-                                                        "served_by": d.get("model", model)}
+                                                        "served_by": d.get("model", model), **_request_record(body)}
     raise ModelError(f"Groq API unavailable after retries: {last}")

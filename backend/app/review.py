@@ -67,6 +67,15 @@ def _refresh(conn: Any, d: dict[str, Any]) -> str:
     return chash
 
 
+def _keep_refusal(conn: Any) -> None:
+    """Commit the refusal just written to the trail, so the rollback that follows the raised error keeps it.
+
+    A refused attempt (self-approval, an edit that fails verification) is itself audit evidence (A4).
+    Nothing else has been written in the transaction at the points where this is called."""
+    conn.execute("COMMIT")
+    conn.execute("BEGIN IMMEDIATE")
+
+
 # ── SAR decision ─────────────────────────────────────────────────────────────
 
 def record_decision(case_id: str, user: dict[str, Any], sar_required: bool, reason: str,
@@ -134,6 +143,7 @@ def claim_action(draft_id: str, sentence_id: str, user: dict[str, Any], action: 
                 append_trail(conn, d["case_id"], "review", user["email"], "EDIT_REFUSED",
                              {"sentence_id": sentence_id, "attempted_text": new_text, "cites": new_cites,
                               "problems": [c["message"] for c in verdict["checks"] if c["status"] == "fail"]}, draft_id)
+                _keep_refusal(conn)
                 raise ReviewError(422, "The edit fails verification and was not saved",
                                   [c for c in verdict["checks"] if c["status"] == "fail"])
             history.append({"event": "edited", "by": user["email"], "text": new_text, "cites": new_cites, "reason": reason_code})
@@ -226,6 +236,7 @@ def approve(draft_id: str, user: dict[str, Any], attestation: str, expected_hash
         if user["id"] == d["maker_id"] or user["email"] in reviewers(conn, d["id"]):
             append_trail(conn, d["case_id"], "review", user["email"], "APPROVAL_REFUSED",
                          {"reason": "maker-checker: approver reviewed or submitted this draft"}, draft_id)
+            _keep_refusal(conn)
             raise ReviewError(403, "Maker–checker: you reviewed or submitted this draft, so you cannot approve it")
         if len(attestation.strip()) < 20:
             raise ReviewError(422, "Write an attestation statement (at least 20 characters)")

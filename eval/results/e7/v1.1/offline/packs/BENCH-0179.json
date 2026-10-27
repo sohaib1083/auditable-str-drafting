@@ -1,0 +1,1623 @@
+{
+ "pack_version": "1.1",
+ "generated_at": "2026-10-24T13:03:43.428895+00:00",
+ "case": {
+  "id": "BENCH-0179",
+  "ref": "SB-0179",
+  "title": "Border Mule case 179",
+  "jurisdiction": "GOAML:PK",
+  "status": "NO_SAR",
+  "detected_at": "2026-06-12T19:01:34.263464+05:00",
+  "opened_at": "2026-06-13T19:01:34.263464+05:00"
+ },
+ "A5_decision": {
+  "id": "DEC-c2e6be41",
+  "case_id": "BENCH-0179",
+  "sar_required": 0,
+  "reason": "No report: the system found insufficient grounds and the analyst agrees after reviewing the counter-evidence.",
+  "suspicion_formed_at": "2026-10-24T11:03:43.388477+00:00",
+  "deadline_at": "2026-10-31T11:03:43.388477+00:00",
+  "decided_by": "Analyst A (analyst)",
+  "decided_at": "2026-10-24T13:03:43.388873+00:00"
+ },
+ "draft": {
+  "id": "D0179-1-4f2b",
+  "version": 1,
+  "status": "ABSTAINED",
+  "template": "goaml-pk-str@1.0.0",
+  "provider": "offline",
+  "endpoint": {
+   "id": "offline",
+   "provider": "offline",
+   "model": "template-drafter@1.0.0",
+   "location": "in-process",
+   "in_boundary": true,
+   "pseudonymise": false,
+   "approval_ref": "n/a",
+   "description": "Deterministic template drafter. No model, no network. Air-gapped profile."
+  },
+  "content_hash": null,
+  "evidence_head_at_generation": "2569eb731ee9af169cdbf577ca699dc0b5729d55cf1f93b8cd5ce34adae7d89e",
+  "maker": null,
+  "checker": null,
+  "attestation": null,
+  "submitted_at": null,
+  "approved_at": null,
+  "stats": {
+   "sentences": 0,
+   "abstained": true,
+   "injection_flags": []
+  }
+ },
+ "A1_claims": [],
+ "removed_by_verifier": [],
+ "outline": null,
+ "abstain": {
+  "decision": "INSUFFICIENT_GROUNDS",
+  "summary": "No typology reached the confidence threshold after counter-evidence was weighed. The system will not draft a narrative for this case.",
+  "best_hypothesis": {
+   "id": "H3",
+   "name": "Cash volume spike without clear pattern",
+   "confidence": 0.3
+  },
+  "hypotheses": [
+   {
+    "id": "H1",
+    "name": "Structuring (avoiding the cash reporting threshold)",
+    "confidence": 0.2,
+    "support": [
+     "Cash volume inconsistent with the declared income"
+    ],
+    "counter": [],
+    "counter_fact_ids": []
+   },
+   {
+    "id": "H2",
+    "name": "Money mule / rapid pass-through account",
+    "confidence": 0.25,
+    "support": [
+     "Account activity inconsistent with the customer profile"
+    ],
+    "counter": [],
+    "counter_fact_ids": []
+   },
+   {
+    "id": "H3",
+    "name": "Cash volume spike without clear pattern",
+    "confidence": 0.3,
+    "support": [
+     "Cash credits well above the customer's declared income"
+    ],
+    "counter": [],
+    "counter_fact_ids": []
+   }
+  ],
+  "missing": [
+   "why: no supported typology with indicator evidence"
+  ],
+  "recommendation": "Record a documented no-file decision with reasons, or gather further evidence (e.g. source-of-funds documents) and re-run. A human may still decide to file."
+ },
+ "facts_scope": "full",
+ "cited_fact_ids": [],
+ "facts": [
+  {
+   "id": "F01",
+   "key": "subject_name",
+   "label": "Subject name",
+   "type": "entity",
+   "value": "Talha Rehman",
+   "display": "Talha Rehman",
+   "entities": [
+    "Talha Rehman"
+   ],
+   "derived_from": [
+    "EV-0179-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:name",
+   "tool_version": "1.0.0",
+   "hash": "05126113fe0824d2116c7fa30d1d2a78dd94b58a8ba15324a19937f0279c2696"
+  },
+  {
+   "id": "F02",
+   "key": "subject_account",
+   "label": "Subject account",
+   "type": "entity",
+   "value": "PK**HABB****3314",
+   "display": "PK**HABB****3314",
+   "entities": [
+    "PK**HABB****3314"
+   ],
+   "derived_from": [
+    "EV-0179-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:account",
+   "tool_version": "1.0.0",
+   "hash": "70464d89cc41ef7a6511aa54ecdbfcab789e91a89196d841bf4d7f8720d68e25"
+  },
+  {
+   "id": "F03",
+   "key": "occupation",
+   "label": "Declared occupation",
+   "type": "text",
+   "value": "Freelance software developer",
+   "display": "Freelance software developer",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:occupation",
+   "tool_version": "1.0.0",
+   "hash": "9231aecb1684977cb22c4e9596fa6b662f28d0364ab8eeea58e917438c9f9633"
+  },
+  {
+   "id": "F04",
+   "key": "account_opened",
+   "label": "Account opened",
+   "type": "date",
+   "value": "2021-05-06",
+   "display": "6 May 2021",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:account_opened",
+   "tool_version": "1.0.0",
+   "hash": "4d9f207ac3101cc196a2a9f3c8f9ad5177e1c9fa7d5974ecbe75ca224bb52b9a"
+  },
+  {
+   "id": "F05",
+   "key": "declared_income",
+   "label": "Declared monthly income",
+   "type": "amount",
+   "value": 90000,
+   "display": "PKR 90,000 per month",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0005"
+   ],
+   "method": "EXTRACTED",
+   "tool": "kyc.field:declared_monthly_income",
+   "tool_version": "1.0.0",
+   "hash": "30522b4151ee88909a9d3d01921ece0e2577f7885e4e346b285ac41172be1a09"
+  },
+  {
+   "id": "F06",
+   "key": "detection_date",
+   "label": "Alert raised by Tazama",
+   "type": "date",
+   "value": "2026-06-12",
+   "display": "12 June 2026",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0002"
+   ],
+   "method": "EXTRACTED",
+   "tool": "tazama.alert:timestamp",
+   "tool_version": "1.0.0",
+   "hash": "602eac6a0e2625fc057658b129ea5ecfa08d991759e05cf44bfb19f9048a73f8"
+  },
+  {
+   "id": "F07",
+   "key": "tazama_typology",
+   "label": "Tazama typology result",
+   "type": "score",
+   "value": {
+    "typology": "MULE-01@1.0.0",
+    "score": 360,
+    "threshold": 300
+   },
+   "display": "Tazama typology MULE-01 scored 360 against an alert threshold of 300",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0002"
+   ],
+   "method": "EXTRACTED",
+   "tool": "tazama.alert:typologyResult",
+   "tool_version": "1.0.0",
+   "hash": "e784767c99fe646c42e43d6788e47b11f2a03e0e870da1dddd5f5d5e5add0a67"
+  },
+  {
+   "id": "F08",
+   "key": "rule_result",
+   "label": "Tazama rule 018@1.0.0",
+   "type": "text",
+   "value": "Many distinct inbound counterparties in 14 days",
+   "display": "Tazama rule 018@1.0.0: Many distinct inbound counterparties in 14 days",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0003"
+   ],
+   "method": "EXTRACTED",
+   "tool": "tazama.rule:reason",
+   "tool_version": "1.0.0",
+   "hash": "54781cbf36a6e1d5abcefdba605c517f75fc36259d4292dced751ba49c416a93"
+  },
+  {
+   "id": "F09",
+   "key": "rule_result",
+   "label": "Tazama rule 024@1.0.0",
+   "type": "text",
+   "value": "Large share of inbound value leaves quickly",
+   "display": "Tazama rule 024@1.0.0: Large share of inbound value leaves quickly",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0004"
+   ],
+   "method": "EXTRACTED",
+   "tool": "tazama.rule:reason",
+   "tool_version": "1.0.0",
+   "hash": "8a5b57f815d6b3fee01d5b45670738011a152027818044c18e4d3c7c8347186a"
+  },
+  {
+   "id": "F10",
+   "key": "activity_window",
+   "label": "Activity window",
+   "type": "date_range",
+   "value": {
+    "start": "2026-06-03",
+    "end": "2026-06-12"
+   },
+   "display": "3 June 2026 to 12 June 2026",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0007",
+    "EV-0179-0008",
+    "EV-0179-0009",
+    "EV-0179-0010",
+    "EV-0179-0011",
+    "EV-0179-0012",
+    "EV-0179-0013",
+    "EV-0179-0014",
+    "EV-0179-0015",
+    "EV-0179-0016",
+    "EV-0179-0017",
+    "EV-0179-0018",
+    "EV-0179-0019",
+    "EV-0179-0020",
+    "EV-0179-0021"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.window",
+   "tool_version": "1.0.0",
+   "hash": "c70c698e6fd5f5c3f8cbd11d229e294b3a9176d38ef3e0c7c8d084498390f7df"
+  },
+  {
+   "id": "F11",
+   "key": "credits_total",
+   "label": "Total credits",
+   "type": "amount",
+   "value": {
+    "count": 12,
+    "total": 610000
+   },
+   "display": "12 credits totalling PKR 610,000",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0007",
+    "EV-0179-0008",
+    "EV-0179-0009",
+    "EV-0179-0010",
+    "EV-0179-0011",
+    "EV-0179-0012",
+    "EV-0179-0014",
+    "EV-0179-0015",
+    "EV-0179-0016",
+    "EV-0179-0017",
+    "EV-0179-0018",
+    "EV-0179-0019"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.sum",
+   "tool_version": "1.0.0",
+   "hash": "17018a323fdbed28672d90d17aa6c6458b4e92c6849b1eaf2ab248cd0b65b2cc"
+  },
+  {
+   "id": "F12",
+   "key": "debits_total",
+   "label": "Total debits",
+   "type": "amount",
+   "value": {
+    "count": 3,
+    "total": 407000
+   },
+   "display": "3 debits totalling PKR 407,000",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0013",
+    "EV-0179-0020",
+    "EV-0179-0021"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.sum",
+   "tool_version": "1.0.0",
+   "hash": "75cc9c6dcadb5082ab9d1bb6c1aba022ff01902e8e09e5235b5f1024e7783898"
+  },
+  {
+   "id": "F13",
+   "key": "channels_in",
+   "label": "Credit channels",
+   "type": "text",
+   "value": {
+    "IBFT": 12
+   },
+   "display": "12 interbank (IBFT) transfers",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0007",
+    "EV-0179-0008",
+    "EV-0179-0009",
+    "EV-0179-0010",
+    "EV-0179-0011",
+    "EV-0179-0012",
+    "EV-0179-0014",
+    "EV-0179-0015",
+    "EV-0179-0016",
+    "EV-0179-0017",
+    "EV-0179-0018",
+    "EV-0179-0019"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.group_by_channel",
+   "tool_version": "1.0.0",
+   "hash": "a2bf149a1b8196d04854b833b36732cd120db0b306d76891ce6c8b76c8c2f60a"
+  },
+  {
+   "id": "F14",
+   "key": "ctr_threshold",
+   "label": "Cash transaction reporting threshold",
+   "type": "amount",
+   "value": 2000000,
+   "display": "PKR 2,000,000",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0001"
+   ],
+   "method": "REFERENCE",
+   "tool": "template.reference",
+   "tool_version": "1.0.0",
+   "hash": "75477ff85b58671607e6cf34c9533a2deaf970e4ba5b37c6d8fbc9a34e356e2b"
+  },
+  {
+   "id": "F15",
+   "key": "income_multiple",
+   "label": "Credits compared with declared monthly income",
+   "type": "ratio",
+   "value": 6.8,
+   "display": "credits in the activity window were 6.8 times the declared monthly income",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0005",
+    "EV-0179-0007",
+    "EV-0179-0008",
+    "EV-0179-0009",
+    "EV-0179-0010",
+    "EV-0179-0011",
+    "EV-0179-0012",
+    "EV-0179-0014",
+    "EV-0179-0015",
+    "EV-0179-0016",
+    "EV-0179-0017",
+    "EV-0179-0018",
+    "EV-0179-0019"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.ratio",
+   "tool_version": "1.0.0",
+   "hash": "2eaf48591327ff61d493de3b09970994692e9c9c45ddba5c2e2b8cd89d67dbe0"
+  },
+  {
+   "id": "F16",
+   "key": "distinct_senders",
+   "label": "Distinct inbound senders",
+   "type": "count",
+   "value": 9,
+   "display": "9 distinct senders",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0007",
+    "EV-0179-0008",
+    "EV-0179-0009",
+    "EV-0179-0010",
+    "EV-0179-0011",
+    "EV-0179-0012",
+    "EV-0179-0014",
+    "EV-0179-0015",
+    "EV-0179-0016",
+    "EV-0179-0017",
+    "EV-0179-0018",
+    "EV-0179-0019"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.distinct",
+   "tool_version": "1.0.0",
+   "hash": "6b1fc511cc4345afc50e01201a941285fbdea00ae130697a3bb086c8b37d3948"
+  },
+  {
+   "id": "F17",
+   "key": "beneficiary",
+   "label": "Outflow to Cash (ATM)",
+   "type": "amount",
+   "value": {
+    "name": "Cash (ATM)",
+    "count": 2,
+    "total": 244000
+   },
+   "display": "PKR 244,000 was withdrawn as Cash (ATM) in 2 transactions",
+   "entities": [
+    "Cash (ATM)"
+   ],
+   "derived_from": [
+    "EV-0179-0020",
+    "EV-0179-0021"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.group_by_counterparty",
+   "tool_version": "1.0.0",
+   "hash": "2bca5620cc9e4821b683a0bb9a5d644dc12cda8f244f2d6e3ac91fa419330a61"
+  },
+  {
+   "id": "F18",
+   "key": "beneficiary",
+   "label": "Outflow to QuickPay wallet ***0932",
+   "type": "amount",
+   "value": {
+    "name": "QuickPay wallet ***0932",
+    "count": 1,
+    "total": 163000
+   },
+   "display": "PKR 163,000 was sent to QuickPay wallet ***0932 (WLT****0932, Synthetic EMI) in 1 transaction",
+   "entities": [
+    "QuickPay wallet ***0932",
+    "WLT****0932",
+    "Synthetic EMI"
+   ],
+   "derived_from": [
+    "EV-0179-0013"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.group_by_counterparty",
+   "tool_version": "1.0.0",
+   "hash": "63ff4f3e0b97df19d8ee323734359c98e284d5d7b0be799bd3a9dd307b844abf"
+  },
+  {
+   "id": "F19",
+   "key": "atm_withdrawals",
+   "label": "ATM cash withdrawals",
+   "type": "amount",
+   "value": {
+    "count": 2,
+    "total": 244000
+   },
+   "display": "2 ATM cash withdrawals at ATM Blue Area, Islamabad",
+   "entities": [
+    "ATM Blue Area",
+    "Islamabad",
+    "ATM Blue Area",
+    "Islamabad"
+   ],
+   "derived_from": [
+    "EV-0179-0020",
+    "EV-0179-0021"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.sum",
+   "tool_version": "1.0.0",
+   "hash": "dac2d42f6415e1b48b8012d1094272fd0e1303d79323390381f88ba537884f60"
+  },
+  {
+   "id": "F20",
+   "key": "outflow_ratio",
+   "label": "Share of credits paid out",
+   "type": "ratio",
+   "value": 0.67,
+   "display": "debits equal to 67% of credits",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0007",
+    "EV-0179-0008",
+    "EV-0179-0009",
+    "EV-0179-0010",
+    "EV-0179-0011",
+    "EV-0179-0012",
+    "EV-0179-0013",
+    "EV-0179-0014",
+    "EV-0179-0015",
+    "EV-0179-0016",
+    "EV-0179-0017",
+    "EV-0179-0018",
+    "EV-0179-0019",
+    "EV-0179-0020",
+    "EV-0179-0021"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.ratio",
+   "tool_version": "1.0.0",
+   "hash": "00153ee7afe39c286ce4f417c991202caa4deb680f3f4e47e42755ff80da84f0"
+  },
+  {
+   "id": "F21",
+   "key": "pass_through_time",
+   "label": "Time from last credit to each debit",
+   "type": "duration",
+   "value": 31.0,
+   "display": "a median of 31.0 hours between the latest credit and each debit",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0007",
+    "EV-0179-0008",
+    "EV-0179-0009",
+    "EV-0179-0010",
+    "EV-0179-0011",
+    "EV-0179-0012",
+    "EV-0179-0013",
+    "EV-0179-0014",
+    "EV-0179-0015",
+    "EV-0179-0016",
+    "EV-0179-0017",
+    "EV-0179-0018",
+    "EV-0179-0019",
+    "EV-0179-0020",
+    "EV-0179-0021"
+   ],
+   "method": "DETERMINISTIC",
+   "tool": "calc.pass_through",
+   "tool_version": "1.0.0",
+   "hash": "9a98ee0c55ad659fd96e3667c6e599a52ee6c0c2d9baebe4402e41c54a240150"
+  },
+  {
+   "id": "F22",
+   "key": "screening",
+   "label": "Screening result",
+   "type": "text",
+   "value": {
+    "sanctions": "NO_MATCH",
+    "pep": "NO_MATCH",
+    "adverse_media": "NO_MATCH"
+   },
+   "display": "no match on sanctions, PEP or adverse-media screening on 29 June 2026",
+   "entities": [],
+   "derived_from": [
+    "EV-0179-0006"
+   ],
+   "method": "EXTRACTED",
+   "tool": "screening.result",
+   "tool_version": "1.0.0",
+   "hash": "6efdc204fdcef0b027b673359b7ec74e5d1a8aeb4f2adc04dde9083981324d74"
+  },
+  {
+   "id": "F23",
+   "key": "note_action",
+   "label": "Note by L2 analyst",
+   "type": "note",
+   "value": "Outgoing wallet transfers placed on hold pending review. No contact made with the customer about this review.",
+   "display": "L2 analyst (12 June 2026): \"Outgoing wallet transfers placed on hold pending review. No contact made with the customer about this review.\"",
+   "entities": [
+    "L2 analyst"
+   ],
+   "derived_from": [
+    "EV-0179-0022"
+   ],
+   "method": "HUMAN",
+   "tool": "cms.notes",
+   "tool_version": "1.0.0",
+   "hash": "67f32767064d45cca6313b60e4c3f7e63a2edfdc5debfa53aebc2d2fccd283ab"
+  }
+ ],
+ "A8_hypotheses": [
+  {
+   "id": "H1",
+   "typology_id": "STRUCTURING",
+   "name": "Structuring (avoiding the cash reporting threshold)",
+   "short": "structuring",
+   "confidence": 0.2,
+   "supported": false,
+   "support": [
+    {
+     "id": "STR-4",
+     "text": "Cash volume inconsistent with the declared income",
+     "weight": 0.2,
+     "fact_ids": [
+      "F15",
+      "F05"
+     ]
+    }
+   ],
+   "counter": [],
+   "support_fact_ids": [
+    "F05",
+    "F15"
+   ],
+   "counter_fact_ids": [],
+   "tazama_match": false,
+   "catalogue_version": "0.1.0",
+   "display": "Structuring (avoiding the cash reporting threshold) — confidence 0.20; indicators: STR-4",
+   "hash": "ade360938632ee0f7052a801bd6c4c3393d62f1bdf38b0775fb69396f94d7886"
+  },
+  {
+   "id": "H2",
+   "typology_id": "MONEY_MULE",
+   "name": "Money mule / rapid pass-through account",
+   "short": "money mule activity",
+   "confidence": 0.25,
+   "supported": false,
+   "support": [
+    {
+     "id": "MUL-3",
+     "text": "Account activity inconsistent with the customer profile",
+     "weight": 0.2,
+     "fact_ids": [
+      "F15",
+      "F03",
+      "F05"
+     ]
+    }
+   ],
+   "counter": [],
+   "support_fact_ids": [
+    "F03",
+    "F05",
+    "F15"
+   ],
+   "counter_fact_ids": [],
+   "tazama_match": true,
+   "catalogue_version": "0.1.0",
+   "display": "Money mule / rapid pass-through account — confidence 0.25; indicators: MUL-3",
+   "hash": "93773c5e8cc19308bf71ebd35001a02464eff5695a887ab56db983174a5b71df"
+  },
+  {
+   "id": "H3",
+   "typology_id": "UNEXPLAINED_VOLUME",
+   "name": "Cash volume spike without clear pattern",
+   "short": "an unexplained increase in cash activity",
+   "confidence": 0.3,
+   "supported": false,
+   "support": [
+    {
+     "id": "VOL-1",
+     "text": "Cash credits well above the customer's declared income",
+     "weight": 0.3,
+     "fact_ids": [
+      "F15"
+     ]
+    }
+   ],
+   "counter": [],
+   "support_fact_ids": [
+    "F15"
+   ],
+   "counter_fact_ids": [],
+   "tazama_match": false,
+   "catalogue_version": "0.1.0",
+   "display": "Cash volume spike without clear pattern — confidence 0.30; indicators: VOL-1",
+   "hash": "27607405dbd70a95b3042be44d8bbf56c81eb1c3c7a80c282f98bdedf6cb0563"
+  }
+ ],
+ "evidence_scope": "full",
+ "evidence": [
+  {
+   "id": "EV-0179-0001",
+   "seq": 1,
+   "type": "reference",
+   "label": "Cash transaction reporting threshold",
+   "source": "template:goaml-pk-str@1.0.0",
+   "source_ref": "AML Act 2010 / FMU CTR reporting threshold for cash transactions (verify current value)",
+   "content": {
+    "ctr_threshold": 2000000,
+    "currency": "PKR",
+    "near_threshold_band_pct": 80,
+    "note": "Deposits at or above 80% of the CTR threshold but below it are treated as near-threshold."
+   },
+   "content_hash": "763b91a6e7d0ed45c1b2add59584de79bd10ca51026a1eb6ed7d094a113fecb4",
+   "prev_hash": "1f3902d006277a58568716893635e0ac7c87de58fb115990c66427f358175ae7",
+   "entry_hash": "a1f118ae6d4f49250dc2ac9b63ddfa9b53d75686458ab1f8e142eb4351db8712",
+   "captured_at": "2026-10-24T13:03:43.205840+00:00"
+  },
+  {
+   "id": "EV-0179-0002",
+   "seq": 2,
+   "type": "tazama_alert",
+   "label": "Tazama alert ALRT-B0179",
+   "source": "tazama:relay-service",
+   "source_ref": "alert/ALRT-B0179",
+   "content": {
+    "alertId": "ALRT-B0179",
+    "timestamp": "2026-06-12T19:01:34.263464+05:00",
+    "evaluationID": "eval-B0179",
+    "typology": "MULE-01@1.0.0",
+    "score": 360,
+    "alertThreshold": 300,
+    "interdictionThreshold": 600,
+    "trigger": {
+     "OrgnlEndToEndId": "TB0179-0015",
+     "TxSts": "ACCC",
+     "IntrBkSttlmAmt": {
+      "Amt": 49000,
+      "Ccy": "PKR"
+     }
+    }
+   },
+   "content_hash": "13800c66951861a993eb96a2ffd331641b0d36716b4214ab2420f5f10bfe9f1b",
+   "prev_hash": "a1f118ae6d4f49250dc2ac9b63ddfa9b53d75686458ab1f8e142eb4351db8712",
+   "entry_hash": "7b49cf8045b3b6cae4d4da6ef29e5c1f0bdbf524d76c0c0ceaced06a34c99d5b",
+   "captured_at": "2026-10-24T13:03:43.205936+00:00"
+  },
+  {
+   "id": "EV-0179-0003",
+   "seq": 3,
+   "type": "rule_result",
+   "label": "Rule 018@1.0.0 .01",
+   "source": "tazama:rule-processor",
+   "source_ref": "alert/ALRT-B0179/rule/018@1.0.0",
+   "content": {
+    "id": "018@1.0.0",
+    "cfg": "1.0.0",
+    "subRuleRef": ".01",
+    "wght": 200,
+    "reason": "Many distinct inbound counterparties in 14 days",
+    "typology": "MULE-01@1.0.0"
+   },
+   "content_hash": "0b9c53a53d281f425ed245d8e563d8c28046e98262a337fe00f8eb30e3f16356",
+   "prev_hash": "7b49cf8045b3b6cae4d4da6ef29e5c1f0bdbf524d76c0c0ceaced06a34c99d5b",
+   "entry_hash": "a437423469d62019e18e77fd6b9c2aa4e8ef214ac2129c459b6a8413a997f024",
+   "captured_at": "2026-10-24T13:03:43.205989+00:00"
+  },
+  {
+   "id": "EV-0179-0004",
+   "seq": 4,
+   "type": "rule_result",
+   "label": "Rule 024@1.0.0 .01",
+   "source": "tazama:rule-processor",
+   "source_ref": "alert/ALRT-B0179/rule/024@1.0.0",
+   "content": {
+    "id": "024@1.0.0",
+    "cfg": "1.0.0",
+    "subRuleRef": ".01",
+    "wght": 160,
+    "reason": "Large share of inbound value leaves quickly",
+    "typology": "MULE-01@1.0.0"
+   },
+   "content_hash": "051de26357a89b8146e765160547e1e4317a56b0f834ce962b1cd8d22a6693df",
+   "prev_hash": "a437423469d62019e18e77fd6b9c2aa4e8ef214ac2129c459b6a8413a997f024",
+   "entry_hash": "10caf86f601507b86df9b6aff142eb237677b9c1f598a20d251165888b60b132",
+   "captured_at": "2026-10-24T13:03:43.206032+00:00"
+  },
+  {
+   "id": "EV-0179-0005",
+   "seq": 5,
+   "type": "kyc",
+   "label": "KYC profile",
+   "source": "cms:customer-profile",
+   "source_ref": "customer/PK**HABB****3314",
+   "content": {
+    "name": "Talha Rehman",
+    "account": "PK**HABB****3314",
+    "cnic": "484231-5557561-3",
+    "dob": "1990-01-01",
+    "account_opened": "2021-05-06",
+    "city": "Karachi",
+    "risk_rating": "Low",
+    "customer_type": "individual",
+    "declared_monthly_turnover": null,
+    "occupation": "Freelance software developer",
+    "employer": "",
+    "declared_monthly_income": 90000
+   },
+   "content_hash": "dd2882076d80c8c0c7e46ac6049e03a8c4262e13b3f239370bd1902ddfb8f411",
+   "prev_hash": "10caf86f601507b86df9b6aff142eb237677b9c1f598a20d251165888b60b132",
+   "entry_hash": "ddca2de8f51c40cdd17450e18fb6469085799ab4da5a3ce47f9f3dc34a1afdbf",
+   "captured_at": "2026-10-24T13:03:43.206082+00:00"
+  },
+  {
+   "id": "EV-0179-0006",
+   "seq": 6,
+   "type": "screening",
+   "label": "Sanctions / PEP / adverse-media screening",
+   "source": "screening:internal",
+   "source_ref": "screening/BENCH-0179",
+   "content": {
+    "provider": "Internal screening list (synthetic)",
+    "screened_at": "2026-06-29T09:00:00+05:00",
+    "sanctions": "NO_MATCH",
+    "pep": "NO_MATCH",
+    "adverse_media": "NO_MATCH"
+   },
+   "content_hash": "c8d3daeab3749bdcde8f876d8b545d5289bb4f5ea0875eeb2fbaf12cf9d77e79",
+   "prev_hash": "ddca2de8f51c40cdd17450e18fb6469085799ab4da5a3ce47f9f3dc34a1afdbf",
+   "entry_hash": "910c9b8cb58c27fd1ffce217d614962258da339e2f965c8da4f3f93eaa342477",
+   "captured_at": "2026-10-24T13:03:43.206135+00:00"
+  },
+  {
+   "id": "EV-0179-0007",
+   "seq": 7,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0001",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0001",
+   "content": {
+    "txn_id": "TB0179-0001",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**HABB****7245",
+    "counterparty_bank": "Synthetic Bank A",
+    "booked_at": "2026-06-03T12:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 57000,
+    "counterparty_name": "Zeeshan Shah"
+   },
+   "content_hash": "bbf5cce256d8307ef91fbdbbbcf150b5eeb24fad80bc37bf106c1374a25dfc1e",
+   "prev_hash": "910c9b8cb58c27fd1ffce217d614962258da339e2f965c8da4f3f93eaa342477",
+   "entry_hash": "ff535c5683dd12742cc43620ac81806b51c028abcb140ecf8c0c803e02e08467",
+   "captured_at": "2026-10-24T13:03:43.206181+00:00"
+  },
+  {
+   "id": "EV-0179-0008",
+   "seq": 8,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0002",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0002",
+   "content": {
+    "txn_id": "TB0179-0002",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**BAHL****4173",
+    "counterparty_bank": "Synthetic Bank B",
+    "booked_at": "2026-06-05T13:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 50000,
+    "counterparty_name": "Arslan Ghani"
+   },
+   "content_hash": "364f12d2bb7e7bf852c33348e9f6ed4dd46b6045ea334fc07766bfb6fa56db67",
+   "prev_hash": "ff535c5683dd12742cc43620ac81806b51c028abcb140ecf8c0c803e02e08467",
+   "entry_hash": "d030a5a195f968091571b6c6d283bb698f91c0fe7413de1eb6c59e12c2d2d667",
+   "captured_at": "2026-10-24T13:03:43.206227+00:00"
+  },
+  {
+   "id": "EV-0179-0009",
+   "seq": 9,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0003",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0003",
+   "content": {
+    "txn_id": "TB0179-0003",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**ABPA****1828",
+    "counterparty_bank": "Synthetic Bank B",
+    "booked_at": "2026-06-06T09:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 93000,
+    "counterparty_name": "Danish Zafar"
+   },
+   "content_hash": "59aa5ec3ca31a5ae12c94ad1c569c722b96006779c2e148b113d5aa63e969009",
+   "prev_hash": "d030a5a195f968091571b6c6d283bb698f91c0fe7413de1eb6c59e12c2d2d667",
+   "entry_hash": "917a0eebe29bfc29931be7fab95cf0226d3f77bb38f639ced6de97912772b871",
+   "captured_at": "2026-10-24T13:03:43.206287+00:00"
+  },
+  {
+   "id": "EV-0179-0010",
+   "seq": 10,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0004",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0004",
+   "content": {
+    "txn_id": "TB0179-0004",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**ABPA****1489",
+    "counterparty_bank": "Synthetic Bank A",
+    "booked_at": "2026-06-06T11:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 28000,
+    "counterparty_name": "Usman Shah"
+   },
+   "content_hash": "7ebc247a772c4cd427c1d71fc0f8820187e85af531f019f21bcbe50361fad07a",
+   "prev_hash": "917a0eebe29bfc29931be7fab95cf0226d3f77bb38f639ced6de97912772b871",
+   "entry_hash": "929095fe5d41a0bdbe9d92af500051be87ece7c20cf19fdf7117a05c02578cb4",
+   "captured_at": "2026-10-24T13:03:43.206324+00:00"
+  },
+  {
+   "id": "EV-0179-0011",
+   "seq": 11,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0005",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0005",
+   "content": {
+    "txn_id": "TB0179-0005",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**ABPA****6753",
+    "counterparty_bank": "Synthetic Bank C",
+    "booked_at": "2026-06-06T23:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 16000,
+    "counterparty_name": "Zeeshan Rehman"
+   },
+   "content_hash": "20471c48376a57a33f40c8de001bea23dbf853fb113cb5c4b547650c1fcbbf8d",
+   "prev_hash": "929095fe5d41a0bdbe9d92af500051be87ece7c20cf19fdf7117a05c02578cb4",
+   "entry_hash": "18f49a3a6426490c270c60a8f8f716937b87180f2fd6ef0b268a0807d2e38439",
+   "captured_at": "2026-10-24T13:03:43.206361+00:00"
+  },
+  {
+   "id": "EV-0179-0012",
+   "seq": 12,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0006",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0006",
+   "content": {
+    "txn_id": "TB0179-0006",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**BAHL****1285",
+    "counterparty_bank": "Synthetic Bank A",
+    "booked_at": "2026-06-08T12:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 70000,
+    "counterparty_name": "Zeeshan Shah"
+   },
+   "content_hash": "0c1a5b1efe9f0c78490502fb94ddb4fec1ab299582113ec90a35dbae4b71fdd4",
+   "prev_hash": "18f49a3a6426490c270c60a8f8f716937b87180f2fd6ef0b268a0807d2e38439",
+   "entry_hash": "dfa8305753de4ecd047935b1e36bd615d8b4845f0df11846d6c7638106fdddf1",
+   "captured_at": "2026-10-24T13:03:43.206407+00:00"
+  },
+  {
+   "id": "EV-0179-0013",
+   "seq": 13,
+   "type": "transaction",
+   "label": "Wallet Transfer debit TB0179-0007",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0007",
+   "content": {
+    "txn_id": "TB0179-0007",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "WLT****0932",
+    "counterparty_bank": "Synthetic EMI",
+    "booked_at": "2026-06-08T13:01:34.263464+05:00",
+    "direction": "out",
+    "channel": "WALLET_TRANSFER",
+    "amount": 163000,
+    "counterparty_name": "QuickPay wallet ***0932"
+   },
+   "content_hash": "f2d980d88c180e5f4da319f8579f8b711def077f69d4c21000b155ddb8e32e4c",
+   "prev_hash": "dfa8305753de4ecd047935b1e36bd615d8b4845f0df11846d6c7638106fdddf1",
+   "entry_hash": "06380fd2fe52d17c7401d18f2c1f86c2d515aaf4ae13c9dfe423773c40769e2a",
+   "captured_at": "2026-10-24T13:03:43.206446+00:00"
+  },
+  {
+   "id": "EV-0179-0014",
+   "seq": 14,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0008",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0008",
+   "content": {
+    "txn_id": "TB0179-0008",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**MEZN****5463",
+    "counterparty_bank": "Synthetic Bank C",
+    "booked_at": "2026-06-09T03:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 50000,
+    "counterparty_name": "Rabia Khalid"
+   },
+   "content_hash": "a47a9b9f06e489131e6f87f9b03c36f099b7529c63097320c80b9652c5294e03",
+   "prev_hash": "06380fd2fe52d17c7401d18f2c1f86c2d515aaf4ae13c9dfe423773c40769e2a",
+   "entry_hash": "aaa6ef745781de1d7fb163ee897ea6446869553b9a0fa2aea34427fad2aa6a3a",
+   "captured_at": "2026-10-24T13:03:43.206514+00:00"
+  },
+  {
+   "id": "EV-0179-0015",
+   "seq": 15,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0009",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0009",
+   "content": {
+    "txn_id": "TB0179-0009",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**UNIL****5757",
+    "counterparty_bank": "Synthetic Bank B",
+    "booked_at": "2026-06-10T03:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 39000,
+    "counterparty_name": "Zeeshan Rehman"
+   },
+   "content_hash": "8485957416de25457450c317443596dd797cdf949fc4ae049fb8f0b3f6d10b21",
+   "prev_hash": "aaa6ef745781de1d7fb163ee897ea6446869553b9a0fa2aea34427fad2aa6a3a",
+   "entry_hash": "38cfa516219fd0d65ec1474ce3a3903473549210b562579b3ca55a9b36054bd0",
+   "captured_at": "2026-10-24T13:03:43.206547+00:00"
+  },
+  {
+   "id": "EV-0179-0016",
+   "seq": 16,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0010",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0010",
+   "content": {
+    "txn_id": "TB0179-0010",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**MUCB****5831",
+    "counterparty_bank": "Synthetic Bank B",
+    "booked_at": "2026-06-10T11:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 57000,
+    "counterparty_name": "Usman Zafar"
+   },
+   "content_hash": "6ee5587aa48adb512fd565cd12fe2dfcc53030357e9c561d97cd5bd03dbb4245",
+   "prev_hash": "38cfa516219fd0d65ec1474ce3a3903473549210b562579b3ca55a9b36054bd0",
+   "entry_hash": "49a2232290f10575f6e5621fd0ae904962622a1288761e6e86073bf2ecb5b589",
+   "captured_at": "2026-10-24T13:03:43.206579+00:00"
+  },
+  {
+   "id": "EV-0179-0017",
+   "seq": 17,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0011",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0011",
+   "content": {
+    "txn_id": "TB0179-0011",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**BAHL****7567",
+    "counterparty_bank": "Synthetic Bank B",
+    "booked_at": "2026-06-10T22:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 76000,
+    "counterparty_name": "Hira Yousaf"
+   },
+   "content_hash": "af89ed5347747c685ed136e64cb47b3005ccc19541ed6459611cb1d2ed4ef8f3",
+   "prev_hash": "49a2232290f10575f6e5621fd0ae904962622a1288761e6e86073bf2ecb5b589",
+   "entry_hash": "50c7a74c172226e8e36f9d332c32addbe10403ed8d579fa7a311f119f2e702f6",
+   "captured_at": "2026-10-24T13:03:43.206612+00:00"
+  },
+  {
+   "id": "EV-0179-0018",
+   "seq": 18,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0012",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0012",
+   "content": {
+    "txn_id": "TB0179-0012",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**UNIL****5670",
+    "counterparty_bank": "Synthetic Bank B",
+    "booked_at": "2026-06-11T01:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 49000,
+    "counterparty_name": "Usman Zafar"
+   },
+   "content_hash": "eb097ce1ba44956339eb1788fd98d11e954369ce5e564329437dfff95115ed18",
+   "prev_hash": "50c7a74c172226e8e36f9d332c32addbe10403ed8d579fa7a311f119f2e702f6",
+   "entry_hash": "15494a7a676952d6f56f856434fd331642c2d61eebaedbd4014e39e3048feeab",
+   "captured_at": "2026-10-24T13:03:43.206645+00:00"
+  },
+  {
+   "id": "EV-0179-0019",
+   "seq": 19,
+   "type": "transaction",
+   "label": "Ibft credit TB0179-0013",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0013",
+   "content": {
+    "txn_id": "TB0179-0013",
+    "currency": "PKR",
+    "memo": "payment",
+    "counterparty_country": "PK",
+    "branch": "",
+    "city": "",
+    "counterparty_account": "PK**BAHL****7342",
+    "counterparty_bank": "Synthetic Bank A",
+    "booked_at": "2026-06-11T05:00:00+05:00",
+    "direction": "in",
+    "channel": "IBFT",
+    "amount": 25000,
+    "counterparty_name": "Junaid Ali"
+   },
+   "content_hash": "2b55ec6eaae6ec618120c63e358307ab50ebcd37b9ef26a4e38af3a1cbb96fef",
+   "prev_hash": "15494a7a676952d6f56f856434fd331642c2d61eebaedbd4014e39e3048feeab",
+   "entry_hash": "dd0d8cb121f454286193ec36131e6fefb1f83d6fe79de7fd66e0d42f58f45c37",
+   "captured_at": "2026-10-24T13:03:43.206679+00:00"
+  },
+  {
+   "id": "EV-0179-0020",
+   "seq": 20,
+   "type": "transaction",
+   "label": "Atm Withdrawal debit TB0179-0014",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0014",
+   "content": {
+    "txn_id": "TB0179-0014",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "ATM Blue Area",
+    "city": "Islamabad",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-12T12:01:34.263464+05:00",
+    "direction": "out",
+    "channel": "ATM_WITHDRAWAL",
+    "amount": 195000,
+    "counterparty_name": "Cash (ATM)"
+   },
+   "content_hash": "d45be0cecacafb7e834e513b827e9253013fae9391f0d19afa66425fd4cbde48",
+   "prev_hash": "dd0d8cb121f454286193ec36131e6fefb1f83d6fe79de7fd66e0d42f58f45c37",
+   "entry_hash": "dbc2c0646efed5257677af39f348752063327fd551bd02b9125503bf912a9bda",
+   "captured_at": "2026-10-24T13:03:43.206713+00:00"
+  },
+  {
+   "id": "EV-0179-0021",
+   "seq": 21,
+   "type": "transaction",
+   "label": "Atm Withdrawal debit TB0179-0015",
+   "source": "cms:gold-lakehouse",
+   "source_ref": "lakehouse.transactions?query=7b9ec304a074a20c#TB0179-0015",
+   "content": {
+    "txn_id": "TB0179-0015",
+    "currency": "PKR",
+    "memo": "",
+    "counterparty_country": "PK",
+    "branch": "ATM Blue Area",
+    "city": "Islamabad",
+    "counterparty_account": "",
+    "counterparty_bank": "",
+    "booked_at": "2026-06-12T19:01:34.263464+05:00",
+    "direction": "out",
+    "channel": "ATM_WITHDRAWAL",
+    "amount": 49000,
+    "counterparty_name": "Cash (ATM)"
+   },
+   "content_hash": "a9b3dd006b59dd83b1f75f966e7f0891afe587dd676ca33ba185100e251342b1",
+   "prev_hash": "dbc2c0646efed5257677af39f348752063327fd551bd02b9125503bf912a9bda",
+   "entry_hash": "c79d2cbda1fe9ebbaf8937c7bb82ebec641dc829bd562ec7c9d667063caa4933",
+   "captured_at": "2026-10-24T13:03:43.206745+00:00"
+  },
+  {
+   "id": "EV-0179-0022",
+   "seq": 22,
+   "type": "case_note",
+   "label": "Case note 1 (L2 analyst)",
+   "source": "cms:case-notes",
+   "source_ref": "case/BENCH-0179/note/1",
+   "content": {
+    "author": "L2 analyst",
+    "at": "2026-06-12T21:00:00+05:00",
+    "text": "Outgoing wallet transfers placed on hold pending review. No contact made with the customer about this review."
+   },
+   "content_hash": "439d573fc9dc7ab7a1cac5727ba20fb8c7688b5bb13d89ad47fd0379d9eaea95",
+   "prev_hash": "c79d2cbda1fe9ebbaf8937c7bb82ebec641dc829bd562ec7c9d667063caa4933",
+   "entry_hash": "2569eb731ee9af169cdbf577ca699dc0b5729d55cf1f93b8cd5ce34adae7d89e",
+   "captured_at": "2026-10-24T13:03:43.206778+00:00"
+  }
+ ],
+ "A3_A4_trail": [
+  {
+   "seq": 1,
+   "kind": "system",
+   "actor": "bench:intake",
+   "action": "CASE_INGESTED",
+   "draft_id": null,
+   "detail": {
+    "evidence_items": 22,
+    "new_evidence": null,
+    "lakehouse_query": {
+     "tool": "lakehouse.transactions",
+     "entity": "PK**HABB****3314",
+     "window": [
+      "2026-06-03",
+      "2026-06-12"
+     ]
+    },
+    "query_hash": "7b9ec304a074a20c",
+    "alert_id": "ALRT-B0179"
+   },
+   "content_hash": "932880dcb54b8287ce006a45812c926f5bac057adcdf8124c068e0de080003e9",
+   "prev_hash": "66504c00d8b4222e017a7301a5794481158244541475dbd31e5bd35d1b1a430a",
+   "entry_hash": "97971c059e7c34567cb765f69400536f1aebdbb560003de929c2b83f9e0aad81",
+   "at": "2026-10-24T13:03:43.206824+00:00"
+  },
+  {
+   "seq": 2,
+   "kind": "agent_run",
+   "actor": "agent:case_assembler",
+   "action": "AGENT_RUN",
+   "draft_id": "D0179-1-4f2b",
+   "detail": {
+    "agent": "case_assembler",
+    "tool": "intake@1.0.0",
+    "evidence_items": 22,
+    "evidence_head": "2569eb731ee9af169cdbf577ca699dc0b5729d55cf1f93b8cd5ce34adae7d89e"
+   },
+   "content_hash": "74fbf0398f59c6a256aae840f967df372a71e5985fc75f1080abde0dd4c4a0c8",
+   "prev_hash": "97971c059e7c34567cb765f69400536f1aebdbb560003de929c2b83f9e0aad81",
+   "entry_hash": "2fecf2138412bbe6b1e2c4b8b4d74cfd86b0c0002ffb9efbf5463fc053bad570",
+   "at": "2026-10-24T13:03:43.244880+00:00"
+  },
+  {
+   "seq": 3,
+   "kind": "agent_run",
+   "actor": "agent:fact_builder",
+   "action": "AGENT_RUN",
+   "draft_id": "D0179-1-4f2b",
+   "detail": {
+    "agent": "fact_builder",
+    "tool": "facts@1.0.0",
+    "input_hash": "2569eb731ee9af169cdbf577ca699dc0b5729d55cf1f93b8cd5ce34adae7d89e",
+    "output_hash": "d58ca099c83f0675738ce89901f45c10cb0247346d720a64fef325081b636dec",
+    "facts": 23
+   },
+   "content_hash": "79eaf2208b1806296e210512af670c5f31062a2c67e38b73d9c88c917606b1eb",
+   "prev_hash": "2fecf2138412bbe6b1e2c4b8b4d74cfd86b0c0002ffb9efbf5463fc053bad570",
+   "entry_hash": "4e18f85049483313d618c7234dabced5a599e0db63efdeb43e0e6da5b7375993",
+   "at": "2026-10-24T13:03:43.285276+00:00"
+  },
+  {
+   "seq": 4,
+   "kind": "agent_run",
+   "actor": "agent:typology_analyst",
+   "action": "AGENT_RUN",
+   "draft_id": "D0179-1-4f2b",
+   "detail": {
+    "agent": "typology_analyst",
+    "tool": "typology@1.0.0",
+    "input_hash": "d58ca099c83f0675738ce89901f45c10cb0247346d720a64fef325081b636dec",
+    "output_hash": "813618295ea6dc64be2a1ed6f856fd2ef149e7b67efedb632582f437209ccfd1",
+    "hypotheses": [
+     {
+      "id": "H1",
+      "typology": "STRUCTURING",
+      "confidence": 0.2,
+      "supported": false
+     },
+     {
+      "id": "H2",
+      "typology": "MONEY_MULE",
+      "confidence": 0.25,
+      "supported": false
+     },
+     {
+      "id": "H3",
+      "typology": "UNEXPLAINED_VOLUME",
+      "confidence": 0.3,
+      "supported": false
+     }
+    ],
+    "abstain_confidence": 0.6,
+    "evaluated": [
+     {
+      "typology": "STRUCTURING",
+      "catalogue_version": "0.1.0",
+      "support": [
+       {
+        "id": "STR-1",
+        "fired": false
+       },
+       {
+        "id": "STR-2",
+        "fired": false
+       },
+       {
+        "id": "STR-3",
+        "fired": false
+       },
+       {
+        "id": "STR-4",
+        "fired": true
+       },
+       {
+        "id": "STR-5",
+        "fired": false
+       }
+      ],
+      "counter": [
+       {
+        "id": "STR-C1",
+        "fired": false
+       },
+       {
+        "id": "STR-C2",
+        "fired": false
+       },
+       {
+        "id": "STR-C3",
+        "fired": false
+       }
+      ]
+     },
+     {
+      "typology": "MONEY_MULE",
+      "catalogue_version": "0.1.0",
+      "support": [
+       {
+        "id": "MUL-1",
+        "fired": false
+       },
+       {
+        "id": "MUL-2",
+        "fired": false
+       },
+       {
+        "id": "MUL-3",
+        "fired": true
+       },
+       {
+        "id": "MUL-4",
+        "fired": false
+       }
+      ],
+      "counter": [
+       {
+        "id": "MUL-C1",
+        "fired": false
+       },
+       {
+        "id": "MUL-C2",
+        "fired": false
+       }
+      ]
+     },
+     {
+      "typology": "UNEXPLAINED_VOLUME",
+      "catalogue_version": "0.1.0",
+      "support": [
+       {
+        "id": "VOL-1",
+        "fired": true
+       },
+       {
+        "id": "VOL-2",
+        "fired": false
+       }
+      ],
+      "counter": [
+       {
+        "id": "VOL-C1",
+        "fired": false
+       },
+       {
+        "id": "VOL-C2",
+        "fired": false
+       },
+       {
+        "id": "VOL-C3",
+        "fired": false
+       }
+      ]
+     }
+    ]
+   },
+   "content_hash": "b5b40c7c1329c0e9cf742a78386ba43377b34f2e40f527b1997951e977c411b4",
+   "prev_hash": "4e18f85049483313d618c7234dabced5a599e0db63efdeb43e0e6da5b7375993",
+   "entry_hash": "6bcf0e0181b50bb62d3035fff50598160d8bee7cbd48cde4484dfef717af026e",
+   "at": "2026-10-24T13:03:43.317735+00:00"
+  },
+  {
+   "seq": 5,
+   "kind": "agent_run",
+   "actor": "agent:planner",
+   "action": "AGENT_RUN",
+   "draft_id": "D0179-1-4f2b",
+   "detail": {
+    "agent": "planner",
+    "tool": "planner@1.0.0",
+    "template": "goaml-pk-str@1.0.0",
+    "abstain": true,
+    "slots": 0,
+    "gaps": []
+   },
+   "content_hash": "cebb8dbf7050cc994671ab4d88eca283440bc52b91d147ea66866dd121a683f3",
+   "prev_hash": "6bcf0e0181b50bb62d3035fff50598160d8bee7cbd48cde4484dfef717af026e",
+   "entry_hash": "0a08742da3711e4a3c6c141968f36a86aa37454024077502791fb2b49ec233cf",
+   "at": "2026-10-24T13:03:43.353555+00:00"
+  },
+  {
+   "seq": 6,
+   "kind": "system",
+   "actor": "orchestrator",
+   "action": "DRAFT_ABSTAINED",
+   "draft_id": "D0179-1-4f2b",
+   "detail": {
+    "decision": "INSUFFICIENT_GROUNDS",
+    "best": {
+     "id": "H3",
+     "name": "Cash volume spike without clear pattern",
+     "confidence": 0.3
+    },
+    "evidence_head": "2569eb731ee9af169cdbf577ca699dc0b5729d55cf1f93b8cd5ce34adae7d89e"
+   },
+   "content_hash": "33ce9fae7fb3c218d1f3d3b74b6a41f38e40d93607cafa9c28d7e7f808bfe41f",
+   "prev_hash": "0a08742da3711e4a3c6c141968f36a86aa37454024077502791fb2b49ec233cf",
+   "entry_hash": "ecf668c295d04b73fba6067c72887f4bb7db123a04a8649d844e6237a2c1a141",
+   "at": "2026-10-24T13:03:43.378330+00:00"
+  },
+  {
+   "seq": 7,
+   "kind": "decision",
+   "actor": "analyst@bench.example",
+   "action": "SAR_DECISION_RECORDED",
+   "draft_id": null,
+   "detail": {
+    "decision_id": "DEC-c2e6be41",
+    "sar_required": false,
+    "reason": "No report: the system found insufficient grounds and the analyst agrees after reviewing the counter-evidence.",
+    "suspicion_formed_at": "2026-10-24T11:03:43.388477+00:00",
+    "deadline_at": "2026-10-31T11:03:43.388477+00:00",
+    "deadline_rule": {
+     "days": 7,
+     "basis": "suspicion_formed_at",
+     "note": "Configured as 7 calendar days from forming suspicion. VERIFY against AML Act 2010 s.7 and current FMU guidance before production use."
+    }
+   },
+   "content_hash": "adaa96bb8d9b5812552b5d917f1be7953665ff509f78e18992481a10dffc8a44",
+   "prev_hash": "ecf668c295d04b73fba6067c72887f4bb7db123a04a8649d844e6237a2c1a141",
+   "entry_hash": "0cf57a4f6a0f45cf04a2a6977a5ce6bf24f6f73b475304bc07e1242eae4966d9",
+   "at": "2026-10-24T13:03:43.388941+00:00"
+  },
+  {
+   "seq": 8,
+   "kind": "audit",
+   "actor": "auditor@bench.example",
+   "action": "INTEGRITY_VERIFIED",
+   "draft_id": "D0179-1-4f2b",
+   "detail": {
+    "verdict": "PASS",
+    "problems": [],
+    "evidence_head": "2569eb731ee9af169cdbf577ca699dc0b5729d55cf1f93b8cd5ce34adae7d89e",
+    "draft_id": "D0179-1-4f2b"
+   },
+   "content_hash": "73abcc386318c1dfe6fb741b63080003efabc3ad9290e3c8c5be2561898fac95",
+   "prev_hash": "0cf57a4f6a0f45cf04a2a6977a5ce6bf24f6f73b475304bc07e1242eae4966d9",
+   "entry_hash": "3798139023b7d63aa808c0c1376f4e7b2f4ffeda3ca3f3b053436679c9e253f2",
+   "at": "2026-10-24T13:03:43.410417+00:00"
+  }
+ ],
+ "filings": [],
+ "A6_A7_integrity": {
+  "case_id": "BENCH-0179",
+  "checked_at": "2026-10-24T13:03:43.409126+00:00",
+  "checked_by": "auditor@bench.example",
+  "evidence_chain": {
+   "intact": true,
+   "entries": 22,
+   "first_break": null,
+   "problems": [],
+   "head": "2569eb731ee9af169cdbf577ca699dc0b5729d55cf1f93b8cd5ce34adae7d89e"
+  },
+  "trail_chain": {
+   "intact": true,
+   "entries": 7,
+   "first_break": null,
+   "problems": [],
+   "head": "0cf57a4f6a0f45cf04a2a6977a5ce6bf24f6f73b475304bc07e1242eae4966d9"
+  },
+  "chain_integrity": "intact",
+  "trail_integrity": "intact",
+  "injection_flags": [],
+  "draft": {
+   "draft_id": "D0179-1-4f2b",
+   "version": 1,
+   "status": "ABSTAINED",
+   "sentences_total": 0,
+   "sentences_fully_cited": 0,
+   "citations_resolved": 0,
+   "citations_unresolved": 0,
+   "auditability_score": null,
+   "lineage_impact": {
+    "facts": [],
+    "hypotheses": [],
+    "sentences": []
+   },
+   "facts_not_reproducible": [],
+   "fact_hash_mismatches": [],
+   "verdict_replay_differences": [],
+   "anchor": {
+    "evidence_head_at_draft": "2569eb731ee9af169cdbf577ca699dc0b5729d55cf1f93b8cd5ce34adae7d89e",
+    "still_in_chain": true
+   },
+   "content_hash": {
+    "stored": null,
+    "recomputed": "a51709f430bd19364112b64ad4c8edae6943e288a61c536a81ed7957be1d0ee5",
+    "attested": null,
+    "matches_stored": null,
+    "matches_attested": null
+   }
+  },
+  "verdict": "PASS",
+  "problems": []
+ },
+ "actors": {
+  "analyst@bench.example": {
+   "name": "Analyst A",
+   "role": "analyst"
+  },
+  "mlro@bench.example": {
+   "name": "MLRO B",
+   "role": "mlro"
+  },
+  "auditor@bench.example": {
+   "name": "Auditor C",
+   "role": "auditor"
+  }
+ },
+ "release": {
+  "name": "auditable-str-drafting",
+  "version": "1.1.0",
+  "components": {
+   "verifier": "verifier-1.0.0",
+   "fact_builder": "facts@1.0.0",
+   "typology_catalogue": "0.1.0",
+   "drafter_prompt": "drafter-v1",
+   "template": "goaml-pk-str@1.0.0",
+   "audit_pack": "1.1"
+  },
+  "benchmark": {
+   "name": "SAR-Bench-lite",
+   "path": "eval/results/paper_numbers.json",
+   "sha256": "6cc4a59db3c9feac7d8691955ed3de68c0e0965c9e0545acc4366fa4f49975f6"
+  }
+ },
+ "pack_hash": "adc72644fcd9fc98e27e54cad46f3db4673b9ff13e8a82c6e0df53e7f2605484"
+}
